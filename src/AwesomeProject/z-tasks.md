@@ -15,10 +15,10 @@
 - [x]: pass parameters to AppBar
 - [x]: Fix the Back button
 - [x]: Make proccess Button optional
-- [ ]: navigate to last screen
-- [ ]: Handle the Edit Button
+- [x] navigate to last screen
+- [x]: Handle the Edit Button
 - Finish Screens:
-  - [ ]: Screen 1
+  - [x]: Screen 1
   - [ ]: Screen 2
   - [ ]: Screen 3
 - [ ]: now to DataBase

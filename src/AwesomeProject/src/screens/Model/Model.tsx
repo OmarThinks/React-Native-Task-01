@@ -5,11 +5,17 @@ import {View} from 'react-native';
 import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {Image} from 'react-native';
 import {useAppTheme} from '@theme';
+
+const InkImage = require('./assets/Ink.png');
+const LCDImage = require('./assets/LCDs.png');
+const PrinterImage = require('./assets/Printers.png');
+const labtopImage = require('./assets/Labtops.png');
 
 const CardItem = () => {
   return (
-    <View>
+    <View style={{alignItems: 'center'}}>
       <Text variant="cardFooter">Model</Text>
     </View>
   );
@@ -39,6 +45,11 @@ const Model = () => {
         }}>
         To Model Details
       </Text>
+
+      <Image source={InkImage} />
+      <Image source={LCDImage} />
+      <Image source={PrinterImage} />
+      <Image source={labtopImage} />
     </View>
   );
 };
