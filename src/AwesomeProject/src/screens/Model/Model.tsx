@@ -31,4 +31,7 @@ const Model = () => {
 
 export default MainLayout(Model, {
   title: 'Model',
+  hasBackButton: true,
+  hasProccessButton: false,
+  hasEditButton: false,
 });

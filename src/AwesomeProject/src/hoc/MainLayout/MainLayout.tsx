@@ -22,6 +22,8 @@ const MainLayout = (
     hzPadding = 20,
     vrPadding = 20,
     hasBackButton = true,
+    hasProccessButton = false,
+    hasEditButton = false,
   }: {
     isScrollable?: boolean;
     hasAppBar?: boolean;
@@ -29,6 +31,9 @@ const MainLayout = (
     hzPadding?: number;
     vrPadding?: number;
     hasBackButton?: boolean;
+
+    hasProccessButton?: boolean;
+    hasEditButton?: boolean;
   } = {},
 ) => {
   const InnerMainLayout = () => {
@@ -50,7 +55,7 @@ const MainLayout = (
           }}>
           <StatusBar
             barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
-            backgroundColor={colors.appBg}
+            backgroundColor={colors.statusBarBg}
           />
           {appBar}
           <ScrollView

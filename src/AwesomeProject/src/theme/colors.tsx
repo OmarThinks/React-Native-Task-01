@@ -6,6 +6,7 @@ import {
 const lightColors = {
   ...LightTheme.colors,
 
+  statusBarBg: '#FFFFFF',
   appBg: '#F4F4F4',
   appBarBg: '#DEDEDE',
   normalText: '#4E4E4E',
@@ -30,8 +31,9 @@ type themeColors = typeof lightColors;
 const darkColors: themeColors = {
   ...DarkTheme.colors,
 
-  appBg: '#222222',
-  appBarBg: '#000000',
+  statusBarBg: '#000000',
+  appBg: '#444444',
+  appBarBg: '#333333',
   normalText: '#dddddd',
   searchBarBg: '#555555',
   inputTextPlaceHolder: '#999999',

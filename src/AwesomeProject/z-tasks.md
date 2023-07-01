@@ -12,6 +12,9 @@
   - [x]: Screen 1
   - [x]: Screen 2
   - [x]: Screen 3
+- [ ]: Fix the Back button
+- [ ]: Make proccess Button optional
+- [ ]: Handle the Edit Button
 - Finish Screens:
   - [ ]: Screen 1
   - [ ]: Screen 2
