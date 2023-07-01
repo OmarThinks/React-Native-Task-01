@@ -17,33 +17,45 @@ const labtopImage = require('./assets/Labtops.png');
 const CardItem = ({imgSrc}: {imgSrc: any}) => {
   return (
     <View
-      style={{alignItems: 'center', alignSelf: 'flex-start', flexShrink: 1}}>
-      <TouchFiller onPress={() => {}} />
+      style={{
+        alignItems: 'center',
+        alignSelf: 'flex-start',
+        flexShrink: 1,
+      }}>
       <View
         style={{
           backgroundColor: 'white',
+          elevation: 20,
           borderRadius: 19,
-          overflow: 'hidden',
         }}>
-        <Image
-          source={imgSrc}
+        <View
           style={{
-            //width: undefined,
-            //height: undefined,
-            //maxWidth: 160,
-            //flex: 1,
-            width: 137,
-            height: 91,
-            resizeMode: 'contain',
-            flexShrink: 1,
-            marginHorizontal: 12,
-            marginVertical: 10,
-          }}
-          //height={undefined}
-        />
+            overflow: 'hidden',
+            borderRadius: 19,
+          }}>
+          <TouchFiller onPress={() => {}} />
+
+          <Image
+            source={imgSrc}
+            style={{
+              width: 137,
+              height: 91,
+              resizeMode: 'contain',
+              flexShrink: 1,
+              marginHorizontal: 12,
+              marginVertical: 10,
+            }}
+          />
+        </View>
       </View>
 
-      <Text variant="cardFooter">Model</Text>
+      <Text
+        variant="cardFooter"
+        style={{
+          marginTop: 4,
+        }}>
+        Model
+      </Text>
     </View>
   );
 };
@@ -61,10 +73,6 @@ const Model = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Text variant="v16">Hey</Text>
-      <View
-        style={{alignSelf: 'stretch', backgroundColor: 'red', height: 100}}
-      />
       <CardItem imgSrc={InkImage} />
       <Text
         onPress={() => {
@@ -83,7 +91,7 @@ const Model = () => {
 
 export default MainLayout(Model, {
   title: 'Model',
-  hasBackButton: true,
-  hasProccessButton: false,
-  hasEditButton: false,
+  // hasBackButton: true,
+  //hasProccessButton: false,
+  //hasEditButton: false,
 });
