@@ -1,16 +1,13 @@
-import {Text} from '@components';
-import {setTheme} from '@redux';
+import type {IconWeight} from '@components';
+import {CircleIcon, Text, TouchFiller} from '@components';
+import {RootStackParamList, navigationNames} from '@navigation';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {setTheme, themeSelector} from '@redux';
 import {useAppTheme} from '@theme';
 import React from 'react';
 import {View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootStackParamList, navigationNames} from '@navigation';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {CircleIcon} from '@components';
-import {themeSelector} from '@redux';
-import type {IconWeight} from '@components';
-import {TouchFiller} from '@components';
 
 const AppBarCircleIcon = ({
   iconName,

@@ -3,7 +3,7 @@ import {MainLayout} from '@hoc';
 import React from 'react';
 import {View} from 'react-native';
 
-const Home = () => {
+const Model = () => {
   return (
     <View
       style={{
@@ -20,7 +20,6 @@ const Home = () => {
   );
 };
 
-export default MainLayout(Home, {
-  title: 'Picture',
-  hasBackButton: false,
+export default MainLayout(Model, {
+  title: 'Model',
 });

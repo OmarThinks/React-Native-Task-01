@@ -6,7 +6,7 @@
 - [x]: finalize AppBar
 - [x]: pass hasBackButton from mainLayout to AppBar
 - [x]: Home doesn't have a back button
-- [ ]: Download AppBar SVGs
+- [x]: Download AppBar SVGs
 - [ ]: use the first svg (Probably using React Native svg)
 - [ ]: make svgs visible (maybe using ts config)
 - [ ]: Add all screens (Empty)

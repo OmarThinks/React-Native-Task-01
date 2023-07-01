@@ -1,5 +1,4 @@
 import {AppBar as AppBarOriginal} from '@components';
-import {NavigationNameType} from '@navigation';
 import {themeSelector} from '@redux';
 import {useAppTheme} from '@theme';
 import React from 'react';
