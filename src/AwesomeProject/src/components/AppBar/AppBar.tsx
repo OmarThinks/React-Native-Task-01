@@ -21,30 +21,14 @@ const AppBarCircleIcon = ({
 }) => {
   const colors = useAppTheme().colors;
 
-  <CircleIcon
-    size={40}
-    color={iconColor || colors.iconColor}
-    iconName={iconName}
-    bgColor={colors.iconBg}
-    onPress={onPress}
-    borderWidth={1}
-  />;
-};
-
-const BackButton = () => {
-  const colors = useAppTheme().colors;
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-
   return (
     <CircleIcon
       size={40}
-      color={colors.iconColor}
-      iconName="arrow-left"
+      color={iconColor || colors.iconColor}
+      iconName={iconName}
       bgColor={colors.iconBg}
-      onPress={() => {
-        navigation.goBack();
-      }}
+      onPress={onPress}
+      borderWidth={1}
     />
   );
 };
@@ -79,8 +63,6 @@ const AppBar = ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        // flexGrow: 1,
-        // flexShrink: 1
       }}>
       <View
         style={{
@@ -91,7 +73,14 @@ const AppBar = ({
           gap: 10,
           alignItems: 'center',
         }}>
-        {hasBackButton && <BackButton />}
+        {hasBackButton && (
+          <AppBarCircleIcon
+            iconName="arrow-left"
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+        )}
 
         <Text
           style={{
@@ -104,23 +93,12 @@ const AppBar = ({
         </Text>
       </View>
       <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 10}}>
-        <CircleIcon
-          size={40}
-          color={colors.iconColor}
-          iconName="adjust"
-          bgColor={colors.iconBg}
-          onPress={toggleTheme}
-          borderWidth={1}
-        />
-        <CircleIcon
-          size={40}
-          color={colors.iconColor}
+        <AppBarCircleIcon iconName="adjust" onPress={toggleTheme} />
+        <AppBarCircleIcon
           iconName="plug"
-          bgColor={colors.iconBg}
           onPress={() => {
             navigation.navigate(navigationNames.Components1);
           }}
-          borderWidth={1}
         />
       </View>
     </View>
