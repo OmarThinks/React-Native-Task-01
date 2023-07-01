@@ -2,7 +2,7 @@
 
 - [x]: Figure out colors
 - [x]: Resolve fonts
-- [ ]: Theme Cicle Icon
+- [x]: Theme Cicle Icon
 - [ ]: Download AppBar SVGs
 - [ ]: use the first svg (Probably using React Native svg)
 - [ ]: make svgs visible (maybe using ts config)

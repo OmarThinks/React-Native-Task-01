@@ -18,7 +18,7 @@ const lightColors = {
 
   iconColor: '#00FF00',
   themeIconColor: '#000000',
-  iconBg: '#FFFFFF',
+  iconBg: '#F4FAF5',
 };
 
 type themeColors = typeof lightColors;
@@ -38,7 +38,7 @@ const darkColors: themeColors = {
 
   iconColor: '#00FF00',
   themeIconColor: '#FFFFFF',
-  iconBg: '#000000',
+  iconBg: '#333333',
 };
 
 export {darkColors, lightColors};

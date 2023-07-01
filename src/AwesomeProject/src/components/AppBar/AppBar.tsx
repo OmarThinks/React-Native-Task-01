@@ -54,7 +54,7 @@ const AppBar = ({title}: {title?: string}) => {
           {title}
         </Text>
       </View>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 10}}>
         <CircleIcon
           size={40}
           color={colors.themeIconColor}
@@ -63,13 +63,16 @@ const AppBar = ({title}: {title?: string}) => {
           onPress={toggleTheme}
           borderWidth={1}
         />
-        <Text
-          style={{}}
+        <CircleIcon
+          size={40}
+          color={colors.iconColor}
+          iconName="plug"
+          bgColor={colors.iconBg}
           onPress={() => {
             navigation.navigate(navigationNames.Components1);
-          }}>
-          Components
-        </Text>
+          }}
+          borderWidth={1}
+        />
       </View>
     </View>
   );
