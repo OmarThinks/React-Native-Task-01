@@ -9,6 +9,8 @@ import {Image} from 'react-native';
 import {useAppTheme} from '@theme';
 import {TouchFiller} from '@components';
 import {StyleSheet} from 'react-native';
+import {TextInput} from 'react-native-paper';
+import {Avatar} from 'react-native-paper';
 
 const styles = StyleSheet.create({
   itemsRow: {
@@ -24,6 +26,7 @@ const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
 const PrinterImage = require('./assets/Printers.png');
 const labtopImage = require('./assets/Labtops.png');
+const Barcode = require('./assets/barcode.png');
 
 const CardItem = ({imgSrc}: {imgSrc: any}) => {
   const colors = useAppTheme().colors;
@@ -75,6 +78,7 @@ const CardItem = ({imgSrc}: {imgSrc: any}) => {
 
 const Model = () => {
   const colors = useAppTheme().colors;
+  const theme = useAppTheme();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -85,6 +89,28 @@ const Model = () => {
         alignSelf: 'stretch',
         alignItems: 'center',
       }}>
+      <TextInput
+        style={{
+          alignSelf: 'stretch',
+          marginVertical: 10,
+          borderRadius: 20,
+        }}
+        theme={{
+          ...theme,
+          roundness: 20,
+        }}
+        outlineStyle={{
+          width: 2,
+        }}
+        underlineStyle={{
+          height: 0,
+        }}
+        dense
+        contentStyle={{
+          fontSize: 18,
+        }}
+        right={<TextInput.Icon icon={Barcode} size={26} />}
+      />
       <View
         style={{
           ...styles.itemsRow,
@@ -109,6 +135,9 @@ const Model = () => {
         <CardItem imgSrc={PrinterImage} />
         <CardItem imgSrc={labtopImage} />
       </View>
+
+      <CardItem imgSrc={Barcode} />
+
       <Text
         onPress={() => {
           navigation.navigate('ModelDetails');
