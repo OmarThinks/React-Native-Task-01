@@ -51,4 +51,5 @@ const Home = () => {
 
 export default MainLayout(Home, {
   title: 'Home',
+  hasBackButton: false,
 });

@@ -3,9 +3,9 @@
 - [x]: Figure out colors
 - [x]: Resolve fonts
 - [x]: Theme Cicle Icon
-- [ ]: finalize AppBar
-- [ ]: pass hasBackButton from mainLayout to AppBar
-- [ ]: Home doesn't have a back button
+- [x]: finalize AppBar
+- [x]: pass hasBackButton from mainLayout to AppBar
+- [x]: Home doesn't have a back button
 - [ ]: Download AppBar SVGs
 - [ ]: use the first svg (Probably using React Native svg)
 - [ ]: make svgs visible (maybe using ts config)
