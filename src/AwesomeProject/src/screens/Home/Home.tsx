@@ -16,33 +16,41 @@ const MainNav = () => {
       style={{
         marginHorizontal: 25,
         alignSelf: 'stretch',
-        height: 100,
         backgroundColor: colors.cardBg,
         borderRadius: 200,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
         overflow: 'hidden',
       }}>
       <TouchFiller onPress={() => {}} />
       <View
         style={{
+          alignSelf: 'stretch',
           flexDirection: 'row',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          gap: 12,
-          marginLeft: 20,
+          marginHorizontal: 20,
+          marginVertical: 13,
         }}>
-        <Icon name="warehouse" size={26} color={colors.homeNavItemIconColor} />
-        <Text variant="menuItemHeader">Asset Inventory</Text>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: 12,
-          marginRight: 20,
-        }}>
-        <Icon name="arrow-right" size={20} color={colors.green} />
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 12,
+          }}>
+          <Icon
+            name="warehouse"
+            size={26}
+            color={colors.homeNavItemIconColor}
+          />
+          <Text variant="menuItemHeader">Asset Inventory</Text>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 12,
+          }}>
+          <Icon name="arrow-right" size={20} color={colors.green} />
+        </View>
       </View>
     </View>
   );

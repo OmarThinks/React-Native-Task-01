@@ -141,6 +141,7 @@ const AppBar = ({
           iconName="check"
           iconWeight="light"
           caption={'Proccess'}
+          iconColor={colors.green}
         />
       </View>
     </View>
