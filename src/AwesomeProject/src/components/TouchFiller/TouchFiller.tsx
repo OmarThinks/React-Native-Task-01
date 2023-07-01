@@ -6,10 +6,12 @@ const TouchFiller = ({
   style = {},
   onPress,
   zIndex = 1,
+  inactive = false,
 }: {
   style?: ViewStyle;
   onPress?: () => void;
   zIndex?: number;
+  inactive?: boolean;
 }) => {
   const borderRadius = style.borderRadius || 0;
 
@@ -28,7 +30,8 @@ const TouchFiller = ({
           flexGrow: 1,
           alignSelf: 'stretch',
         }}
-        onPress={onPress}>
+        onPress={onPress}
+        rippleColor={inactive ? 'transparent' : undefined}>
         <View />
       </TouchableRipple>
     </View>
