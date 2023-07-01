@@ -15,6 +15,10 @@ const lightColors = {
   noteBg: '#FFFFFF',
   cardBg: '#EAEAEA',
   smallCardBg: '#FFFFFF',
+
+  iconColor: '#00FF00',
+  themeIconColor: '#000000',
+  iconBg: '#FFFFFF',
 };
 
 type themeColors = typeof lightColors;
@@ -31,6 +35,10 @@ const darkColors: themeColors = {
   noteBg: '#000000',
   cardBg: '#2F2F2F',
   smallCardBg: '#000000',
+
+  iconColor: '#00FF00',
+  themeIconColor: '#FFFFFF',
+  iconBg: '#000000',
 };
 
 export {darkColors, lightColors};

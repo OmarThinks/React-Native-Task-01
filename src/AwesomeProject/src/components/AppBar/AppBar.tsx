@@ -1,13 +1,14 @@
 import {Text} from '@components';
-import {setTheme, themeSelector} from '@redux';
+import {setTheme} from '@redux';
 import {useAppTheme} from '@theme';
 import React from 'react';
 import {View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-
 import {RootStackParamList, navigationNames} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {CircleIcon} from '@components';
+import {themeSelector} from '@redux';
 
 const AppBar = ({title}: {title?: string}) => {
   const colors = useAppTheme().colors;
@@ -53,18 +54,22 @@ const AppBar = ({title}: {title?: string}) => {
           {title}
         </Text>
       </View>
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <CircleIcon
+          size={40}
+          color={colors.themeIconColor}
+          iconName="adjust"
+          bgColor={colors.iconBg}
+          onPress={toggleTheme}
+          borderWidth={1}
+        />
         <Text
-          style={{marginRight: 10}}
+          style={{}}
           onPress={() => {
             navigation.navigate(navigationNames.Components1);
           }}>
-          Components 1
+          Components
         </Text>
-        <Text style={{marginRight: 10}} onPress={toggleTheme}>
-          Theme
-        </Text>
-        <Text style={{}}>Drawer</Text>
       </View>
     </View>
   );
