@@ -1,20 +1,20 @@
 import {
   MD3DarkTheme as DarkTheme,
   MD3LightTheme as LightTheme,
+  configureFonts,
   useTheme,
-  configureFonts
 } from 'react-native-paper';
-import { darkColors, lightColors } from './colors';
-import { customFonts } from './fonts';
+import {darkColors, lightColors} from './colors';
+import {customFonts} from './fonts';
 
-const fonts = configureFonts({ config: customFonts });
+const fonts = configureFonts({config: customFonts});
 
 export const lightTheme = {
   ...LightTheme,
   colors: {
-    ...lightColors
+    ...lightColors,
   },
-  fonts
+  fonts,
 };
 
 type AppTheme = typeof lightTheme;
@@ -22,9 +22,9 @@ type AppTheme = typeof lightTheme;
 export const darkTheme: AppTheme = {
   ...DarkTheme,
   colors: {
-    ...darkColors
+    ...darkColors,
   },
-  fonts
+  fonts,
 };
 
 export type fontVariants = keyof typeof customFonts;

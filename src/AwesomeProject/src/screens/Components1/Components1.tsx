@@ -1,21 +1,21 @@
-import { View } from 'react-native';
+import {CircleIcon, Icon, Text, TouchFiller} from '@components';
+import {MainLayout} from '@hoc';
 import React from 'react';
-import { Text, TouchFiller, Icon, CircleIcon } from '@components';
-import { MainLayout } from '@hoc';
+import {View} from 'react-native';
 
-const HR = ({ height = 2 }: {height?: number}) => {
+const HR = ({height = 2}: {height?: number}) => {
   return (
     <View
       style={{
         height,
         backgroundColor: 'black',
-        marginVertical: 10
+        marginVertical: 10,
       }}
     />
   );
 };
 
-const Header = ({ title = 'Title' }: {title: string}) => {
+const Header = ({title = 'Title'}: {title: string}) => {
   return (
     <View>
       <HR height={4} />
@@ -84,23 +84,23 @@ const Components1 = () => {
 
       <Header title="TouchFiller" />
       <View>
-        <View style={{ margin: 5, borderRadius: 20, backgroundColor: '#0df' }}>
-          <Text style={{ margin: 20 }}>Pressable</Text>
-          <TouchFiller style={{ borderRadius: 20 }} onPress={() => {}} />
+        <View style={{margin: 5, borderRadius: 20, backgroundColor: '#0df'}}>
+          <Text style={{margin: 20}}>Pressable</Text>
+          <TouchFiller style={{borderRadius: 20}} onPress={() => {}} />
         </View>
-        <View style={{ margin: 5, borderRadius: 20, backgroundColor: '#fdf' }}>
-          <Text style={{ margin: 20 }}>Not Pressable</Text>
-          <TouchFiller style={{ borderRadius: 20 }} />
+        <View style={{margin: 5, borderRadius: 20, backgroundColor: '#fdf'}}>
+          <Text style={{margin: 20}}>Not Pressable</Text>
+          <TouchFiller style={{borderRadius: 20}} />
         </View>
         <View
           style={{
             margin: 5,
             borderRadius: 20,
             backgroundColor: '#fdf',
-            padding: 15
+            padding: 15,
           }}>
-          <Text style={{ margin: 20 }}>{"Don't use with padding"}</Text>
-          <TouchFiller style={{ borderRadius: 20 }} onPress={() => {}} />
+          <Text style={{margin: 20}}>{"Don't use with padding"}</Text>
+          <TouchFiller style={{borderRadius: 20}} onPress={() => {}} />
         </View>
       </View>
 
@@ -114,7 +114,7 @@ const Components1 = () => {
         name="comments"
         color="lime"
         style={{
-          margin: 20
+          margin: 20,
         }}
       />
 
@@ -148,5 +148,5 @@ const Components1 = () => {
 };
 
 export default MainLayout(Components1, {
-  title: 'Components1'
+  title: 'Components1',
 });

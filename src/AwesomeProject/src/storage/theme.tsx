@@ -1,5 +1,5 @@
-import { Theme } from '@redux';
-import { getData, storeData } from './base';
+import {Theme} from '@redux';
+import {getData, storeData} from './base';
 
 const themeStorageKey = 'theme';
 
@@ -12,4 +12,4 @@ const setStoredTheme = async (theme: Theme) => {
   await storeData(themeStorageKey, theme);
 };
 
-export { getStoredTheme, setStoredTheme };
+export {getStoredTheme, setStoredTheme};

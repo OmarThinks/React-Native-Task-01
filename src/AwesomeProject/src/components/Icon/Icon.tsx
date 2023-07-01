@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewStyle } from 'react-native';
+import {ViewStyle} from 'react-native';
 import FAIcon from 'react-native-vector-icons/FontAwesome5';
 
 const Icon = ({
@@ -9,7 +9,7 @@ const Icon = ({
   solid = false,
   light = false,
   brand = false,
-  style = {}
+  style = {},
 }: {
   size: number;
   color: string;

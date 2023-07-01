@@ -22,4 +22,4 @@ const getData = async (key: string) => {
   }
 };
 
-export { getData, storeData };
+export {getData, storeData};

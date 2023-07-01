@@ -1,12 +1,12 @@
-import { AppBar as AppBarOriginal } from '@components';
+import {AppBar as AppBarOriginal} from '@components';
+import {NavigationNameType} from '@navigation';
+import {themeSelector} from '@redux';
+import {useAppTheme} from '@theme';
 import React from 'react';
-import { View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
-import { useAppTheme } from '@theme';
-import { useSelector } from 'react-redux';
-import { themeSelector } from '@redux';
-import { NavigationNameType } from '@navigation';
+import {SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {useSelector} from 'react-redux';
 
-const AppBar = ({ title }: {title?: string}) => <AppBarOriginal title={title} />;
+const AppBar = ({title}: {title?: string}) => <AppBarOriginal title={title} />;
 
 const MainLayout = (
   ScreenComponent: React.FC,
@@ -16,7 +16,7 @@ const MainLayout = (
     title = '',
     hzPadding = 15,
     vrPadding = 15,
-    prevScreen
+    prevScreen,
   }: {
     isScrollable?: boolean;
     hasAppBar?: boolean;
@@ -24,7 +24,7 @@ const MainLayout = (
     hzPadding?: number;
     vrPadding?: number;
     prevScreen?: NavigationNameType;
-  } = {}
+  } = {},
 ) => {
   const InnerMainLayout = () => {
     const appBar = hasAppBar && <AppBar title={title} />;
@@ -38,7 +38,7 @@ const MainLayout = (
         <SafeAreaView
           style={{
             backgroundColor: colors.appBg,
-            flex: 1
+            flex: 1,
             // minHeight: '100%'
           }}>
           <StatusBar
@@ -48,13 +48,13 @@ const MainLayout = (
           {appBar}
           <ScrollView
             style={{
-              flexGrow: 1
+              flexGrow: 1,
               // flexShrink: 1,
               // minHeight: '100%',
               // backgroundColor: 'red'
             }}
             contentContainerStyle={{
-              flexGrow: 1
+              flexGrow: 1,
               // flexShrink: 1
               // minHeight: '100%'
             }}>
@@ -63,7 +63,7 @@ const MainLayout = (
                 marginHorizontal: hzPadding,
                 marginVertical: vrPadding,
                 flexGrow: 1,
-                alignSelf: 'stretch'
+                alignSelf: 'stretch',
               }}>
               <ScreenComponent />
             </View>
@@ -72,7 +72,7 @@ const MainLayout = (
       );
     }
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
         {appBar}
         <ScreenComponent />
       </View>

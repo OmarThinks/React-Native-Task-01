@@ -1,8 +1,7 @@
+import {useAppTheme} from '@theme';
 import React from 'react';
-import { customText, TextProps } from 'react-native-paper';
-import { fontVariants } from 'src/theme/theme';
-import { useAppTheme } from '@theme';
-import { ViewStyle } from 'react-native';
+import {customText, TextProps} from 'react-native-paper';
+import {fontVariants} from 'src/theme/theme';
 
 const TextInner = customText<fontVariants>();
 
@@ -17,7 +16,7 @@ const Text = ({
   return (
     <TextInner
       {...props}
-      style={[{ color: colors.normalText }, style]}
+      style={[{color: colors.normalText}, style]}
       variant={variant}>
       {children}
     </TextInner>

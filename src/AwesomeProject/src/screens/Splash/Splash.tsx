@@ -1,11 +1,11 @@
+import {RootStackParamList, navigationNames} from '@navigation';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {setTheme} from '@redux';
+import {getStoredTheme} from '@storage';
 import React from 'react';
-import { View } from 'react-native';
-import { getStoredTheme } from '@storage';
-import { useDispatch } from 'react-redux';
-import { setTheme } from '@redux';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList, navigationNames } from '@navigation';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import {View} from 'react-native';
+import {useDispatch} from 'react-redux';
 type SplashScreenProps = RouteProp<
   RootStackParamList,
   typeof navigationNames.Splash

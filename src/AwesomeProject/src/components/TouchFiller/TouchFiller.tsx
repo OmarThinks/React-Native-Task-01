@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, ViewStyle } from 'react-native';
-import { TouchableRipple } from 'react-native-paper';
+import {View, ViewStyle} from 'react-native';
+import {TouchableRipple} from 'react-native-paper';
 
 const TouchFiller = ({
   style = {},
   onPress,
-  zIndex = 1
+  zIndex = 1,
 }: {
   style?: ViewStyle;
   onPress?: () => void;
@@ -21,12 +21,12 @@ const TouchFiller = ({
         position: 'absolute',
         zIndex,
         width: '100%',
-        height: '100%'
+        height: '100%',
       }}>
       <TouchableRipple
         style={{
           flexGrow: 1,
-          alignSelf: 'stretch'
+          alignSelf: 'stretch',
         }}
         onPress={onPress}>
         <View />
