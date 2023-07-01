@@ -19,6 +19,8 @@ const MainNav = () => {
         backgroundColor: colors.cardBg,
         borderRadius: 200,
         overflow: 'hidden',
+
+        elevation: 5,
       }}>
       <TouchFiller onPress={() => {}} />
       <View
