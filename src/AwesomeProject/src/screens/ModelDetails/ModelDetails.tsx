@@ -10,6 +10,23 @@ import {TextInput} from 'react-native-paper';
 
 const PrinterImage = require('./assets/Printers.png');
 
+const DetailsTitle = ({
+  title,
+  isVisible,
+  setIsVisible,
+}: {
+  title: string;
+  isVisible: boolean;
+  setIsVisible: (a: boolean) => void;
+}) => {
+  return (
+    <View style={{alignSelf: 'stretch'}}>
+      <TouchFiller onPress={() => {}} />
+      <Text variant="detailsHeader">{title}</Text>
+    </View>
+  );
+};
+
 const HR = () => {
   const colors = useAppTheme().colors;
 
@@ -66,6 +83,7 @@ const ModelDetails = () => {
           />
         </View>
         <HR />
+        <DetailsTitle title="Image Info" />
       </View>
     </View>
   );

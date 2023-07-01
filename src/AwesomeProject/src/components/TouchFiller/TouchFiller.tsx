@@ -27,12 +27,12 @@ const TouchFiller = ({
       }}>
       <TouchableRipple
         style={{
-          flexGrow: 1,
-          alignSelf: 'stretch',
+          width: '100%',
+          height: '100%',
         }}
         onPress={onPress}
         rippleColor={inactive ? 'transparent' : undefined}>
-        <View />
+        <View style={{width: 0, height: 0}} />
       </TouchableRipple>
     </View>
   );
