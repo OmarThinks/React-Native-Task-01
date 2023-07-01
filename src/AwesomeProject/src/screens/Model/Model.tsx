@@ -3,6 +3,14 @@ import {MainLayout} from '@hoc';
 import React from 'react';
 import {View} from 'react-native';
 
+const CardItem = () => {
+  return (
+    <View>
+      <Text variant="cardFooter">Model</Text>
+    </View>
+  );
+};
+
 const Model = () => {
   return (
     <View
@@ -16,6 +24,7 @@ const Model = () => {
       <View
         style={{alignSelf: 'stretch', backgroundColor: 'red', height: 100}}
       />
+      <CardItem />
     </View>
   );
 };
