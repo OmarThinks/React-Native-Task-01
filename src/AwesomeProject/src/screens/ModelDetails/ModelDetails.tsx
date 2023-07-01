@@ -22,4 +22,5 @@ const ModelDetails = () => {
 
 export default MainLayout(ModelDetails, {
   title: 'Model Details',
+  hasEditButton: true,
 });

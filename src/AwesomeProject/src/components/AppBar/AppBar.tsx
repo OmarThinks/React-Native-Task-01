@@ -193,7 +193,7 @@ const AppBar = ({
             imgSrc={CheckImage}
           />
         )}
-        <EditButton />
+        {hasEditButton && <EditButton />}
       </View>
     </View>
   );
