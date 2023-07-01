@@ -28,7 +28,15 @@ const PrinterImage = require('./assets/Printers.png');
 const labtopImage = require('./assets/Labtops.png');
 const Barcode = require('./assets/barcode.png');
 
-const CardItem = ({imgSrc, onPress}: {imgSrc: any; onPress?: () => void}) => {
+const CardItem = ({
+  imgSrc,
+  onPress,
+  caption,
+}: {
+  imgSrc: any;
+  onPress?: () => void;
+  caption: string;
+}) => {
   const colors = useAppTheme().colors;
 
   return (
@@ -70,7 +78,7 @@ const CardItem = ({imgSrc, onPress}: {imgSrc: any; onPress?: () => void}) => {
         style={{
           marginTop: 4,
         }}>
-        Model
+        {caption}
       </Text>
     </View>
   );
@@ -116,8 +124,8 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        <CardItem imgSrc={InkImage} />
-        <CardItem imgSrc={LCDImage} />
+        <CardItem imgSrc={InkImage} caption={'Printer HS'} />
+        <CardItem imgSrc={LCDImage} caption={'LCD XS'} />
       </View>
 
       <View
@@ -138,8 +146,9 @@ const Model = () => {
           onPress={() => {
             navigation.navigate('ModelDetails');
           }}
+          caption={'Laptops'}
         />
-        <CardItem imgSrc={labtopImage} />
+        <CardItem imgSrc={labtopImage} caption={'Printer Inc'} />
       </View>
     </View>
   );

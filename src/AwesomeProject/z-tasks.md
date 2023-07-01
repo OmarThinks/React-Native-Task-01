@@ -19,7 +19,7 @@
 - [x]: Handle the Edit Button
 - Finish Screens:
   - [x]: Screen 1
-  - [ ]: Screen 2
+  - [x]: Screen 2
   - [ ]: Screen 3
 - [ ]: now to DataBase
 - [ ]: Rename Project
