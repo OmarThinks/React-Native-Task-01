@@ -12,6 +12,10 @@ const lightColors = {
   searchBarBg: '#F0F0F0',
   inputTextPlaceHolder: '#C1C1C1',
 
+  green: '#7AC692',
+
+  homeNavItemIconColor: '#4D4E4E',
+
   noteBg: '#FFFFFF',
   cardBg: '#EAEAEA',
   smallCardBg: '#FFFFFF',
@@ -31,6 +35,10 @@ const darkColors: themeColors = {
   normalText: '#dddddd',
   searchBarBg: '#555555',
   inputTextPlaceHolder: '#999999',
+
+  green: '#7AC692',
+
+  homeNavItemIconColor: '#FFFFFF',
 
   noteBg: '#000000',
   cardBg: '#2F2F2F',
