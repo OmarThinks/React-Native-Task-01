@@ -130,9 +130,14 @@ const AppBar = ({
           alignItems: 'center',
         }}>
         {hasBackButton && (
-          <AppBarCircleIcon caption={'Back'} imgSrc={BackImage} />
+          <AppBarCircleIcon
+            caption={'Back'}
+            imgSrc={BackImage}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
         )}
-
         <Text
           style={{
             color: colors.normalText,
