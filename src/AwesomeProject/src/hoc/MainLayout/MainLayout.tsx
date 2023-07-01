@@ -19,8 +19,8 @@ const MainLayout = (
     isScrollable = true,
     hasAppBar = true,
     title = '',
-    hzPadding = 15,
-    vrPadding = 15,
+    hzPadding = 20,
+    vrPadding = 20,
     hasBackButton = true,
   }: {
     isScrollable?: boolean;

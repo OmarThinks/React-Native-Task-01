@@ -7,16 +7,15 @@
 - [x]: pass hasBackButton from mainLayout to AppBar
 - [x]: Home doesn't have a back button
 - [x]: Download AppBar SVGs
-- [ ]: use the first svg (Probably using React Native svg)
-- [ ]: make svgs visible (maybe using ts config)
-- [ ]: Add all screens (Empty)
-- [ ]: Figure out components
+- [x]: Add all screens (Empty)
 - Screens (Shape only):
+  - [x]: Screen 1
+  - [x]: Screen 2
+  - [x]: Screen 3
+- Finish Screens:
   - [ ]: Screen 1
   - [ ]: Screen 2
   - [ ]: Screen 3
-  - [ ]: Screen 4
-  - [ ]: Screen 5
 - [ ]: now to DataBase
 - [ ]: Rename Project
 - [ ]: Change the Project Icon
