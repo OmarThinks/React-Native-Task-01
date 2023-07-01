@@ -1,16 +1,18 @@
-import {Text} from '@components';
+import {Text, TouchFiller} from '@components';
 import {MainLayout} from '@hoc';
-import React from 'react';
-import {View} from 'react-native';
 import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Image} from 'react-native';
 import {useAppTheme} from '@theme';
-import {TouchFiller} from '@components';
-import {StyleSheet} from 'react-native';
+import React from 'react';
+import {Image, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-paper';
-import {Avatar} from 'react-native-paper';
+
+const InkImage = require('./assets/Ink.png');
+const LCDImage = require('./assets/LCDs.png');
+const PrinterImage = require('./assets/Printers.png');
+const labtopImage = require('./assets/Labtops.png');
+const Barcode = require('./assets/barcode.png');
 
 const styles = StyleSheet.create({
   itemsRow: {
@@ -21,12 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 });
-
-const InkImage = require('./assets/Ink.png');
-const LCDImage = require('./assets/LCDs.png');
-const PrinterImage = require('./assets/Printers.png');
-const labtopImage = require('./assets/Labtops.png');
-const Barcode = require('./assets/barcode.png');
 
 const CardItem = ({
   imgSrc,
