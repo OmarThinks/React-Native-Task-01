@@ -2,6 +2,10 @@ import {Text} from '@components';
 import {MainLayout} from '@hoc';
 import React from 'react';
 import {View} from 'react-native';
+import {RootStackParamList} from '@navigation';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useAppTheme} from '@theme';
 
 const CardItem = () => {
   return (
@@ -12,6 +16,10 @@ const CardItem = () => {
 };
 
 const Model = () => {
+  const colors = useAppTheme().colors;
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   return (
     <View
       style={{
@@ -25,6 +33,12 @@ const Model = () => {
         style={{alignSelf: 'stretch', backgroundColor: 'red', height: 100}}
       />
       <CardItem />
+      <Text
+        onPress={() => {
+          navigation.navigate('ModelDetails');
+        }}>
+        To Model Details
+      </Text>
     </View>
   );
 };

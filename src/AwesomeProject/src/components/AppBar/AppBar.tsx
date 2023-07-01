@@ -6,9 +6,8 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {setTheme, themeSelector} from '@redux';
 import {useAppTheme} from '@theme';
 import React from 'react';
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {Image} from 'react-native';
 
 const BackImage = require('./assets/Back.png');
 const CheckImage = require('./assets/Proccess.png');

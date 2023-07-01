@@ -13,8 +13,9 @@
   - [x]: Screen 2
   - [x]: Screen 3
 - [x]: pass parameters to AppBar
-- [ ]: Fix the Back button
+- [x]: Fix the Back button
 - [x]: Make proccess Button optional
+- [ ]: navigate to last screen
 - [ ]: Handle the Edit Button
 - Finish Screens:
   - [ ]: Screen 1

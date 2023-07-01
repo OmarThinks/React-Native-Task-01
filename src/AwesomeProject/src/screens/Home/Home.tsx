@@ -1,13 +1,11 @@
-import {Text, TouchFiller} from '@components';
+import {Icon, Text, TouchFiller} from '@components';
 import {MainLayout} from '@hoc';
-import React from 'react';
-import {View} from 'react-native';
-import {useAppTheme} from '@theme';
+import {RootStackParamList} from '@navigation';
+import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackParamList, navigationNames} from '@navigation';
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
-import {Icon} from '@components';
-import {Image} from 'react-native';
+import {useAppTheme} from '@theme';
+import React from 'react';
+import {Image, View} from 'react-native';
 
 const VendorsImage = require('./assets/Vendors.png');
 const StockFileImage = require('./assets/StockFile.png');
