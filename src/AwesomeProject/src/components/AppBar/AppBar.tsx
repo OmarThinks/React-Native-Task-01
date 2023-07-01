@@ -8,18 +8,26 @@ import {useAppTheme} from '@theme';
 import React from 'react';
 import {View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {Image} from 'react-native';
+
+const BackImage = require('./assets/Back.png');
+const CheckImage = require('./assets/Proccess.png');
 
 const AppBarCircleIcon = ({
   iconName,
   iconColor,
   onPress,
 
+  imgSrc,
+
   iconWeight = 'regular',
   caption,
 }: {
-  iconName: string;
+  iconName?: string;
   iconColor?: string;
   onPress?: () => void;
+
+  imgSrc?: any;
 
   iconWeight?: IconWeight;
   caption?: string;
@@ -42,15 +50,28 @@ const AppBarCircleIcon = ({
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <CircleIcon
-          size={28}
-          color={iconColor || colors.iconColor}
-          iconName={iconName}
-          bgColor={colors.iconBg}
-          onPress={onPress}
-          borderWidth={1}
-          iconWeight={iconWeight}
-        />
+        {!imgSrc ? (
+          <CircleIcon
+            size={28}
+            color={iconColor || colors.iconColor}
+            iconName={iconName}
+            bgColor={colors.iconBg}
+            onPress={onPress}
+            borderWidth={1}
+            iconWeight={iconWeight}
+          />
+        ) : (
+          <Image
+            source={imgSrc}
+            width={27}
+            height={27}
+            style={{
+              width: 27,
+              height: 27,
+            }}
+            resizeMode="contain"
+          />
+        )}
         {caption && (
           <Text
             style={{
@@ -105,13 +126,7 @@ const AppBar = ({
           alignItems: 'center',
         }}>
         {hasBackButton && (
-          <AppBarCircleIcon
-            iconName="arrow-left"
-            onPress={() => {
-              navigation.goBack();
-            }}
-            caption="Back"
-          />
+          <AppBarCircleIcon caption={'Proccess'} imgSrc={BackImage} />
         )}
 
         <Text
@@ -138,10 +153,9 @@ const AppBar = ({
           caption={'Theme'}
         />
         <AppBarCircleIcon
-          iconName="check"
           iconWeight="light"
           caption={'Proccess'}
-          iconColor={colors.green}
+          imgSrc={CheckImage}
         />
       </View>
     </View>
