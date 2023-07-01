@@ -82,7 +82,13 @@ const Home = () => {
         imgSource={StockFileImage}
         title={'Asset Inventory'}
       />
-      <MainNav onPress={() => {}} imgSource={VendorsImage} title={'Model'} />
+      <MainNav
+        onPress={() => {
+          navigation.navigate('Model');
+        }}
+        imgSource={VendorsImage}
+        title={'Model'}
+      />
       <MainNav onPress={() => {}} imgSource={VendorsImage} title={'Person'} />
     </View>
   );
@@ -90,5 +96,5 @@ const Home = () => {
 
 export default MainLayout(Home, {
   title: 'Picture',
-  //hasBackButton: false,
+  hasBackButton: false,
 });
