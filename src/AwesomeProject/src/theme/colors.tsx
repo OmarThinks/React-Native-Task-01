@@ -13,6 +13,8 @@ const lightColors = {
   searchBarBg: '#F0F0F0',
   inputTextPlaceHolder: '#C1C1C1',
 
+  hrColor: '#DEDEDE',
+
   green: '#7AC692',
 
   homeNavItemIconColor: '#4D4E4E',
@@ -37,6 +39,8 @@ const darkColors: themeColors = {
   normalText: '#dddddd',
   searchBarBg: '#555555',
   inputTextPlaceHolder: '#999999',
+
+  hrColor: '#333333',
 
   green: '#7AC692',
 

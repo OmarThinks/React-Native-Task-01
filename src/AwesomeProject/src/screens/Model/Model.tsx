@@ -92,6 +92,16 @@ const Model = () => {
         <CardItem imgSrc={InkImage} />
         <CardItem imgSrc={LCDImage} />
       </View>
+
+      <View
+        style={{
+          marginTop: 16,
+          marginBottom: 23,
+          height: 3,
+          backgroundColor: colors.hrColor,
+          alignSelf: 'stretch',
+        }}
+      />
       <View
         style={{
           ...styles.itemsRow,
@@ -111,7 +121,4 @@ const Model = () => {
 
 export default MainLayout(Model, {
   title: 'Model',
-  // hasBackButton: true,
-  //hasProccessButton: false,
-  //hasEditButton: false,
 });
