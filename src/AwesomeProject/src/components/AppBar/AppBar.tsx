@@ -90,9 +90,13 @@ const AppBarCircleIcon = ({
 const AppBar = ({
   title,
   hasBackButton = true,
+  hasProccessButton = false,
+  hasEditButton = false,
 }: {
   title?: string;
   hasBackButton?: boolean;
+  hasProccessButton?: boolean;
+  hasEditButton?: boolean;
 }) => {
   const colors = useAppTheme().colors;
   const dispatch = useDispatch();
@@ -126,7 +130,7 @@ const AppBar = ({
           alignItems: 'center',
         }}>
         {hasBackButton && (
-          <AppBarCircleIcon caption={'Proccess'} imgSrc={BackImage} />
+          <AppBarCircleIcon caption={'Back'} imgSrc={BackImage} />
         )}
 
         <Text
@@ -152,11 +156,13 @@ const AppBar = ({
           onPress={toggleTheme}
           caption={'Theme'}
         />
-        <AppBarCircleIcon
-          iconWeight="light"
-          caption={'Proccess'}
-          imgSrc={CheckImage}
-        />
+        {hasProccessButton && (
+          <AppBarCircleIcon
+            iconWeight="light"
+            caption={'Proccess'}
+            imgSrc={CheckImage}
+          />
+        )}
       </View>
     </View>
   );

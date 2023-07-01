@@ -8,10 +8,21 @@ import {useSelector} from 'react-redux';
 const AppBar = ({
   title,
   hasBackButton = true,
+  hasProccessButton,
+  hasEditButton,
 }: {
   title?: string;
   hasBackButton?: boolean;
-}) => <AppBarOriginal title={title} hasBackButton={hasBackButton} />;
+  hasProccessButton?: boolean;
+  hasEditButton?: boolean;
+}) => (
+  <AppBarOriginal
+    title={title}
+    hasBackButton={hasBackButton}
+    hasProccessButton={hasProccessButton}
+    hasEditButton={hasEditButton}
+  />
+);
 
 const MainLayout = (
   ScreenComponent: React.FC,
@@ -21,7 +32,7 @@ const MainLayout = (
     title = '',
     hzPadding = 20,
     vrPadding = 20,
-    hasBackButton = true,
+    hasBackButton,
     hasProccessButton = false,
     hasEditButton = false,
   }: {
@@ -38,7 +49,12 @@ const MainLayout = (
 ) => {
   const InnerMainLayout = () => {
     const appBar = hasAppBar && (
-      <AppBar title={title} hasBackButton={hasBackButton} />
+      <AppBar
+        title={title}
+        hasBackButton={hasBackButton}
+        hasProccessButton={hasProccessButton}
+        hasEditButton={hasEditButton}
+      />
     );
     const colors = useAppTheme().colors;
     const theme = useSelector(themeSelector);

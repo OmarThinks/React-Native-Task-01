@@ -97,4 +97,5 @@ const Home = () => {
 export default MainLayout(Home, {
   title: 'Picture',
   hasBackButton: false,
+  hasProccessButton: true,
 });
