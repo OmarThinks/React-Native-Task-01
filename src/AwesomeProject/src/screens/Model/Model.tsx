@@ -124,7 +124,13 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        <CardItem imgSrc={InkImage} caption={'Printer HS'} />
+        <CardItem
+          imgSrc={PrinterImage}
+          caption={'Printer HS'}
+          onPress={() => {
+            navigation.navigate('ModelDetails');
+          }}
+        />
         <CardItem imgSrc={LCDImage} caption={'LCD XS'} />
       </View>
 
@@ -141,14 +147,8 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        <CardItem
-          imgSrc={PrinterImage}
-          onPress={() => {
-            navigation.navigate('ModelDetails');
-          }}
-          caption={'Laptops'}
-        />
-        <CardItem imgSrc={labtopImage} caption={'Printer Inc'} />
+        <CardItem imgSrc={labtopImage} caption={'Laptops'} />
+        <CardItem imgSrc={InkImage} caption={'Printer Inc'} />
       </View>
     </View>
   );
