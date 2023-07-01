@@ -7,15 +7,42 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Image} from 'react-native';
 import {useAppTheme} from '@theme';
+import {TouchFiller} from '@components';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
 const PrinterImage = require('./assets/Printers.png');
 const labtopImage = require('./assets/Labtops.png');
 
-const CardItem = () => {
+const CardItem = ({imgSrc}: {imgSrc: any}) => {
   return (
-    <View style={{alignItems: 'center'}}>
+    <View
+      style={{alignItems: 'center', alignSelf: 'flex-start', flexShrink: 1}}>
+      <TouchFiller onPress={() => {}} />
+      <View
+        style={{
+          backgroundColor: 'white',
+          borderRadius: 19,
+          overflow: 'hidden',
+        }}>
+        <Image
+          source={imgSrc}
+          style={{
+            //width: undefined,
+            //height: undefined,
+            //maxWidth: 160,
+            //flex: 1,
+            width: 137,
+            height: 91,
+            resizeMode: 'contain',
+            flexShrink: 1,
+            marginHorizontal: 12,
+            marginVertical: 10,
+          }}
+          //height={undefined}
+        />
+      </View>
+
       <Text variant="cardFooter">Model</Text>
     </View>
   );
@@ -38,7 +65,7 @@ const Model = () => {
       <View
         style={{alignSelf: 'stretch', backgroundColor: 'red', height: 100}}
       />
-      <CardItem />
+      <CardItem imgSrc={InkImage} />
       <Text
         onPress={() => {
           navigation.navigate('ModelDetails');
