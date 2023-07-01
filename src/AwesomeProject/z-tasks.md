@@ -1,6 +1,7 @@
 # Tasks:
 
 - [x]: Figure out colors
+- [x]: Resolve fonts
 - [ ]: Theme Cicle Icon
 - [ ]: Download AppBar SVGs
 - [ ]: use the first svg (Probably using React Native svg)

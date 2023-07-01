@@ -10,6 +10,7 @@ const lightColors = {
   appBarBg: '#F4F4F4',
   normalText: '#4E4E4E',
   searchBarBg: '#F0F0F0',
+  inputTextPlaceHolder: '#C1C1C1',
 
   noteBg: '#FFFFFF',
   cardBg: '#EAEAEA',
@@ -25,6 +26,7 @@ const darkColors: themeColors = {
   appBarBg: '#000000',
   normalText: '#dddddd',
   searchBarBg: '#555555',
+  inputTextPlaceHolder: '#999999',
 
   noteBg: '#000000',
   cardBg: '#2F2F2F',
