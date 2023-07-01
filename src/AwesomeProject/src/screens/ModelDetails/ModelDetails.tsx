@@ -10,6 +10,22 @@ import {TextInput} from 'react-native-paper';
 
 const PrinterImage = require('./assets/Printers.png');
 
+const HR = () => {
+  const colors = useAppTheme().colors;
+
+  return (
+    <View
+      style={{
+        marginTop: 16,
+        marginBottom: 23,
+        height: 3,
+        backgroundColor: colors.hrColor,
+        alignSelf: 'stretch',
+      }}
+    />
+  );
+};
+
 const ModelDetails = () => {
   const colors = useAppTheme().colors;
 
@@ -33,22 +49,23 @@ const ModelDetails = () => {
           // This is the container of card image
           style={{
             backgroundColor: colors.smallCardBg,
-            elevation: 20,
+            elevation: 10,
             borderRadius: 19,
             alignSelf: 'center',
           }}>
           <Image
             source={PrinterImage}
             style={{
-              width: 137,
-              height: 91,
+              width: 195,
+              height: 130,
               resizeMode: 'contain',
               flexShrink: 1,
               marginHorizontal: 12,
-              marginVertical: 10,
+              marginVertical: 15,
             }}
           />
         </View>
+        <HR />
       </View>
     </View>
   );
