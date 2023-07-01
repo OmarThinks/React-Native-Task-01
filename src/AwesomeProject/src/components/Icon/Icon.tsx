@@ -2,6 +2,8 @@ import React from 'react';
 import {ViewStyle} from 'react-native';
 import FAIcon from 'react-native-vector-icons/FontAwesome5';
 
+export type IconWeight = 'light' | 'regular' | 'solid';
+
 const Icon = ({
   size,
   color,
@@ -17,7 +19,7 @@ const Icon = ({
   style?: ViewStyle;
   brand?: boolean;
 
-  iconWeight?: 'light' | 'regular' | 'solid';
+  iconWeight?: IconWeight;
 }) => {
   const lightWeight = iconWeight === 'light';
   const solidWeight = iconWeight === 'solid';

@@ -9,15 +9,22 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {CircleIcon} from '@components';
 import {themeSelector} from '@redux';
+import type {IconWeight} from '@components';
 
 const AppBarCircleIcon = ({
   iconName,
   iconColor,
   onPress,
+
+  iconWeight = 'regular',
+  caption,
 }: {
   iconName: string;
   iconColor?: string;
   onPress?: () => void;
+
+  iconWeight?: IconWeight;
+  caption?: string;
 }) => {
   const colors = useAppTheme().colors;
 
@@ -29,6 +36,7 @@ const AppBarCircleIcon = ({
       bgColor={colors.iconBg}
       onPress={onPress}
       borderWidth={1}
+      iconWeight={iconWeight}
     />
   );
 };
@@ -50,8 +58,6 @@ const AppBar = ({
   const toggleTheme = () => {
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
-
-  // console.log('Title', title);
 
   return (
     <View
@@ -93,13 +99,14 @@ const AppBar = ({
         </Text>
       </View>
       <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 10}}>
-        <AppBarCircleIcon iconName="adjust" onPress={toggleTheme} />
         <AppBarCircleIcon
           iconName="plug"
           onPress={() => {
             navigation.navigate(navigationNames.Components1);
           }}
         />
+        <AppBarCircleIcon iconName="adjust" onPress={toggleTheme} />
+        <AppBarCircleIcon iconName="check" iconWeight="light" />
       </View>
     </View>
   );

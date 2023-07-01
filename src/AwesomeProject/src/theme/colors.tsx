@@ -6,8 +6,8 @@ import {
 const lightColors = {
   ...LightTheme.colors,
 
-  appBg: '#DEDEDE',
-  appBarBg: '#F4F4F4',
+  appBg: '#F4F4F4',
+  appBarBg: '#DEDEDE',
   normalText: '#4E4E4E',
   searchBarBg: '#F0F0F0',
   inputTextPlaceHolder: '#C1C1C1',
