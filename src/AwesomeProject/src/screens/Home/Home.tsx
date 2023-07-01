@@ -7,8 +7,20 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList, navigationNames} from '@navigation';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {Icon} from '@components';
+import {Image} from 'react-native';
 
-const MainNav = () => {
+const VendorsImage = require('./assets/Vendors.png');
+const StockFileImage = require('./assets/StockFile.png');
+
+const MainNav = ({
+  onPress,
+  imgSource,
+  title,
+}: {
+  onPress: () => void;
+  imgSource: any;
+  title: string;
+}) => {
   const colors = useAppTheme().colors;
 
   return (
@@ -22,7 +34,7 @@ const MainNav = () => {
 
         elevation: 5,
       }}>
-      <TouchFiller onPress={() => {}} />
+      <TouchFiller onPress={onPress} />
       <View
         style={{
           alignSelf: 'stretch',
@@ -38,12 +50,8 @@ const MainNav = () => {
             alignItems: 'center',
             gap: 12,
           }}>
-          <Icon
-            name="warehouse"
-            size={26}
-            color={colors.homeNavItemIconColor}
-          />
-          <Text variant="menuItemHeader">Asset Inventory</Text>
+          <Image source={imgSource} />
+          <Text variant="menuItemHeader">{title}</Text>
         </View>
         <View
           style={{
@@ -68,7 +76,13 @@ const Home = () => {
         alignSelf: 'stretch',
         alignItems: 'center',
       }}>
-      <MainNav />
+      <MainNav
+        onPress={() => {}}
+        imgSource={StockFileImage}
+        title={'Asset Inventory'}
+      />
+      <MainNav onPress={() => {}} imgSource={VendorsImage} title={'Model'} />
+      <MainNav onPress={() => {}} imgSource={VendorsImage} title={'Person'} />
     </View>
   );
 };
