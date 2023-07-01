@@ -72,6 +72,7 @@ const ModelDetails = () => {
   const colors = useAppTheme().colors;
 
   const [isImageInfoVisible, setIsImageInfoVisible] = useState(true);
+  const [isNotesVisible, setIsNotesVisible] = useState(true);
 
   return (
     <View
@@ -88,6 +89,7 @@ const ModelDetails = () => {
           //height: 100,
           paddingHorizontal: 16,
           paddingVertical: 13,
+          borderRadius: 25,
         }}>
         <View
           // This is the container of card image
@@ -114,6 +116,13 @@ const ModelDetails = () => {
           title="Image Info"
           isVisible={isImageInfoVisible}
           setIsVisible={setIsImageInfoVisible}
+        />
+
+        <HR />
+        <DetailsTitle
+          title="Notes"
+          isVisible={isNotesVisible}
+          setIsVisible={setIsNotesVisible}
         />
       </View>
     </View>
