@@ -14,6 +14,10 @@ export const customFonts = {
     fontSize: 6,
     fontWeight: 'bold',
   },
+  appBarEditButton: {
+    fontSize: 10,
+    fontWeight: '600',
+  },
 
   menuItemHeader: {
     fontSize: 18,
@@ -31,7 +35,7 @@ export const customFonts = {
     fontWeight: 'bold',
   },
   notesSubHeader: {fontSize: 15, fontWeight: 'normal'},
-  notesItemHistoryTitle: {fontSize: 12, fontWeight: '500'},
+  notesItemHistoryTitle: {fontSize: 12, fontWeight: '600'},
   notesItemHistoryDate: {
     fontSize: 8,
     fontWeight: 'normal',

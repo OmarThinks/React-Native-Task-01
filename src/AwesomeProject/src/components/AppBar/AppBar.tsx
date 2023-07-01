@@ -1,5 +1,5 @@
 import type {IconWeight} from '@components';
-import {CircleIcon, Text, TouchFiller} from '@components';
+import {CircleIcon, Icon, Text, TouchFiller} from '@components';
 import {RootStackParamList, navigationNames} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -11,6 +11,32 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const BackImage = require('./assets/Back.png');
 const CheckImage = require('./assets/Proccess.png');
+
+const EditButton = () => {
+  const colors = useAppTheme().colors;
+
+  return (
+    <View
+      style={{
+        backgroundColor: colors.iconBg,
+        overflow: 'hidden',
+        borderRadius: 20,
+      }}>
+      <TouchFiller onPress={() => {}} />
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 5,
+          padding: 8,
+          // backgroundColor: 'blue',
+        }}>
+        <Icon name="pencil-alt" color={colors.iconColor} size={13} />
+        <Text variant="appBarEditButton">Edit</Text>
+      </View>
+    </View>
+  );
+};
 
 const AppBarCircleIcon = ({
   iconName,
@@ -167,6 +193,7 @@ const AppBar = ({
             imgSrc={CheckImage}
           />
         )}
+        <EditButton />
       </View>
     </View>
   );
