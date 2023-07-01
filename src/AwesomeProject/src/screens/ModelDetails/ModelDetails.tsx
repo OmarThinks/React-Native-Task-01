@@ -1,10 +1,10 @@
-import {Text, TouchFiller} from '@components';
+import {Text, TouchFiller, Icon} from '@components';
 import {MainLayout} from '@hoc';
 import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAppTheme} from '@theme';
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-paper';
 
@@ -19,10 +19,35 @@ const DetailsTitle = ({
   isVisible: boolean;
   setIsVisible: (a: boolean) => void;
 }) => {
+  const colors = useAppTheme().colors;
+
   return (
-    <View style={{alignSelf: 'stretch'}}>
-      <TouchFiller onPress={() => {}} />
-      <Text variant="detailsHeader">{title}</Text>
+    <View
+      style={{
+        alignSelf: 'stretch',
+        borderRadius: 7,
+        overflow: 'hidden',
+      }}>
+      <TouchFiller
+        onPress={() => {
+          setIsVisible(!isVisible);
+        }}
+      />
+      <View
+        style={{
+          alignSelf: 'stretch',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          paddingVertical: 7,
+          alignItems: 'center',
+        }}>
+        <Text variant="detailsHeader">{title}</Text>
+        <Icon
+          name={!isVisible ? 'chevron-up' : 'chevron-down'}
+          size={10}
+          color={colors.normalText}
+        />
+      </View>
     </View>
   );
 };
@@ -45,6 +70,8 @@ const HR = () => {
 
 const ModelDetails = () => {
   const colors = useAppTheme().colors;
+
+  const [isImageInfoVisible, setIsImageInfoVisible] = useState(true);
 
   return (
     <View
@@ -83,7 +110,11 @@ const ModelDetails = () => {
           />
         </View>
         <HR />
-        <DetailsTitle title="Image Info" />
+        <DetailsTitle
+          title="Image Info"
+          isVisible={isImageInfoVisible}
+          setIsVisible={setIsImageInfoVisible}
+        />
       </View>
     </View>
   );
