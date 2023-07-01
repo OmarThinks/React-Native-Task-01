@@ -75,6 +75,7 @@ const Home = () => {
         flexGrow: 1,
         alignSelf: 'stretch',
         alignItems: 'center',
+        gap: 25,
       }}>
       <MainNav
         onPress={() => {}}
