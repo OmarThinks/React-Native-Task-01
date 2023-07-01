@@ -8,6 +8,17 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Image} from 'react-native';
 import {useAppTheme} from '@theme';
 import {TouchFiller} from '@components';
+import {StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+  itemsRow: {
+    alignSelf: 'stretch',
+    flexDirection: 'row',
+    gap: 10,
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+});
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -15,6 +26,8 @@ const PrinterImage = require('./assets/Printers.png');
 const labtopImage = require('./assets/Labtops.png');
 
 const CardItem = ({imgSrc}: {imgSrc: any}) => {
+  const colors = useAppTheme().colors;
+
   return (
     <View
       style={{
@@ -24,7 +37,7 @@ const CardItem = ({imgSrc}: {imgSrc: any}) => {
       }}>
       <View
         style={{
-          backgroundColor: 'white',
+          backgroundColor: colors.smallCardBg,
           elevation: 20,
           borderRadius: 19,
         }}>
@@ -70,21 +83,28 @@ const Model = () => {
       style={{
         flexGrow: 1,
         alignSelf: 'stretch',
-        justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <CardItem imgSrc={InkImage} />
+      <View
+        style={{
+          ...styles.itemsRow,
+        }}>
+        <CardItem imgSrc={InkImage} />
+        <CardItem imgSrc={LCDImage} />
+      </View>
+      <View
+        style={{
+          ...styles.itemsRow,
+        }}>
+        <CardItem imgSrc={PrinterImage} />
+        <CardItem imgSrc={labtopImage} />
+      </View>
       <Text
         onPress={() => {
           navigation.navigate('ModelDetails');
         }}>
         To Model Details
       </Text>
-
-      <Image source={InkImage} />
-      <Image source={LCDImage} />
-      <Image source={PrinterImage} />
-      <Image source={labtopImage} />
     </View>
   );
 };
