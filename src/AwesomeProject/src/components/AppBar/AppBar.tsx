@@ -10,7 +10,52 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {CircleIcon} from '@components';
 import {themeSelector} from '@redux';
 
-const AppBar = ({title}: {title?: string}) => {
+const AppBarCircleIcon = ({
+  iconName,
+  iconColor,
+  onPress,
+}: {
+  iconName: string;
+  iconColor?: string;
+  onPress?: () => void;
+}) => {
+  const colors = useAppTheme().colors;
+
+  <CircleIcon
+    size={40}
+    color={iconColor || colors.iconColor}
+    iconName={iconName}
+    bgColor={colors.iconBg}
+    onPress={onPress}
+    borderWidth={1}
+  />;
+};
+
+const BackButton = () => {
+  const colors = useAppTheme().colors;
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  return (
+    <CircleIcon
+      size={40}
+      color={colors.iconColor}
+      iconName="arrow-left"
+      bgColor={colors.iconBg}
+      onPress={() => {
+        navigation.goBack();
+      }}
+    />
+  );
+};
+
+const AppBar = ({
+  title,
+  hasBackButton = true,
+}: {
+  title?: string;
+  hasBackButton?: boolean;
+}) => {
   const colors = useAppTheme().colors;
   const dispatch = useDispatch();
   const theme = useSelector(themeSelector);
@@ -43,7 +88,11 @@ const AppBar = ({title}: {title?: string}) => {
           flexGrow: 1,
           flexShrink: 1,
           marginRight: 20,
+          gap: 10,
+          alignItems: 'center',
         }}>
+        {hasBackButton && <BackButton />}
+
         <Text
           style={{
             color: colors.normalText,
@@ -57,7 +106,7 @@ const AppBar = ({title}: {title?: string}) => {
       <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 10}}>
         <CircleIcon
           size={40}
-          color={colors.themeIconColor}
+          color={colors.iconColor}
           iconName="adjust"
           bgColor={colors.iconBg}
           onPress={toggleTheme}

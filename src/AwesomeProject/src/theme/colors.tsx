@@ -16,8 +16,8 @@ const lightColors = {
   cardBg: '#EAEAEA',
   smallCardBg: '#FFFFFF',
 
-  iconColor: '#00FF00',
-  themeIconColor: '#000000',
+  processIconColor: '#00FF00',
+  iconColor: '#000000',
   iconBg: '#F4FAF5',
 };
 
@@ -36,8 +36,8 @@ const darkColors: themeColors = {
   cardBg: '#2F2F2F',
   smallCardBg: '#000000',
 
-  iconColor: '#00FF00',
-  themeIconColor: '#FFFFFF',
+  processIconColor: '#00FF00',
+  iconColor: '#FFFFFF',
   iconBg: '#333333',
 };
 
