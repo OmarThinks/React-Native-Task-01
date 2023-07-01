@@ -4,8 +4,6 @@ A task for a job
 
 # Edits in the design:
 
-- Used bigger CircleIcon at AppBar
-  - Reason:
-    - Small button are harder to press on
-    - For better UX
-- CircleIcons are not 100% exact, to add Dark theme, so I had to use Fontawesome 5 instead
+- [react-native-svg doesn't support the latest version of React native that I am using](https://github.com/software-mansion/react-native-svg#supported-react-native-versions)
+  - So I used FontAwesome 5
+  - Also I could not use png, because it will not fit with dark theme
