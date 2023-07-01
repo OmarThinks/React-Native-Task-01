@@ -28,7 +28,7 @@ const PrinterImage = require('./assets/Printers.png');
 const labtopImage = require('./assets/Labtops.png');
 const Barcode = require('./assets/barcode.png');
 
-const CardItem = ({imgSrc}: {imgSrc: any}) => {
+const CardItem = ({imgSrc, onPress}: {imgSrc: any; onPress?: () => void}) => {
   const colors = useAppTheme().colors;
 
   return (
@@ -49,7 +49,7 @@ const CardItem = ({imgSrc}: {imgSrc: any}) => {
             overflow: 'hidden',
             borderRadius: 19,
           }}>
-          <TouchFiller onPress={() => {}} />
+          <TouchFiller onPress={onPress} />
 
           <Image
             source={imgSrc}
@@ -94,6 +94,7 @@ const Model = () => {
           alignSelf: 'stretch',
           marginVertical: 10,
           borderRadius: 20,
+          marginBottom: 21,
         }}
         theme={{
           ...theme,
@@ -132,18 +133,14 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        <CardItem imgSrc={PrinterImage} />
+        <CardItem
+          imgSrc={PrinterImage}
+          onPress={() => {
+            navigation.navigate('ModelDetails');
+          }}
+        />
         <CardItem imgSrc={labtopImage} />
       </View>
-
-      <CardItem imgSrc={Barcode} />
-
-      <Text
-        onPress={() => {
-          navigation.navigate('ModelDetails');
-        }}>
-        To Model Details
-      </Text>
     </View>
   );
 };
