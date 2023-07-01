@@ -10,6 +10,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {CircleIcon} from '@components';
 import {themeSelector} from '@redux';
 import type {IconWeight} from '@components';
+import {TouchFiller} from '@components';
 
 const AppBarCircleIcon = ({
   iconName,
@@ -29,15 +30,42 @@ const AppBarCircleIcon = ({
   const colors = useAppTheme().colors;
 
   return (
-    <CircleIcon
-      size={40}
-      color={iconColor || colors.iconColor}
-      iconName={iconName}
-      bgColor={colors.iconBg}
-      onPress={onPress}
-      borderWidth={1}
-      iconWeight={iconWeight}
-    />
+    <View
+      style={{
+        justifyContent: 'center',
+      }}>
+      <TouchFiller
+        onPress={onPress}
+        style={{backgroundColor: 'green'}}
+        inactive
+      />
+      <View
+        style={{
+          paddingHorizontal: 5,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <CircleIcon
+          size={28}
+          color={iconColor || colors.iconColor}
+          iconName={iconName}
+          bgColor={colors.iconBg}
+          onPress={onPress}
+          borderWidth={1}
+          iconWeight={iconWeight}
+        />
+        {caption && (
+          <Text
+            style={{
+              textAlign: 'center',
+              marginTop: 3,
+            }}
+            variant="appBarCircleIconText">
+            {caption}
+          </Text>
+        )}
+      </View>
+    </View>
   );
 };
 
@@ -85,6 +113,7 @@ const AppBar = ({
             onPress={() => {
               navigation.goBack();
             }}
+            caption="Back"
           />
         )}
 
@@ -93,20 +122,29 @@ const AppBar = ({
             color: colors.normalText,
             flexShrink: 1,
           }}
-          variant="v20"
+          variant="appBarHeader"
           numberOfLines={1}>
           {title}
         </Text>
       </View>
-      <View style={{flexDirection: 'row', alignItems: 'center', columnGap: 10}}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <AppBarCircleIcon
           iconName="plug"
           onPress={() => {
             navigation.navigate(navigationNames.Components1);
           }}
+          caption="Components"
         />
-        <AppBarCircleIcon iconName="adjust" onPress={toggleTheme} />
-        <AppBarCircleIcon iconName="check" iconWeight="light" />
+        <AppBarCircleIcon
+          iconName="adjust"
+          onPress={toggleTheme}
+          caption={'Theme'}
+        />
+        <AppBarCircleIcon
+          iconName="check"
+          iconWeight="light"
+          caption={'Proccess'}
+        />
       </View>
     </View>
   );

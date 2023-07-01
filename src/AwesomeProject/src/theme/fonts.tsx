@@ -9,6 +9,12 @@ export const customFonts = {
     fontSize: 18,
     fontWeight: 'bold',
   },
+
+  appBarCircleIconText: {
+    fontSize: 6,
+    fontWeight: 'bold',
+  },
+
   menuItemHeader: {
     fontSize: 18,
     fontWeight: 'bold',
