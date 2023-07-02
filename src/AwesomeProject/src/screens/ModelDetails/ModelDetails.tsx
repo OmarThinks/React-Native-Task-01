@@ -86,6 +86,53 @@ const HR = () => {
   );
 };
 
+const historyItemsData = [
+  {
+    title: 'Jennifer Smith',
+    date: Date().toString(),
+    value: 'This Item needs to be checked',
+  },
+  {
+    title: 'Jennifer Smith',
+    date: Date().toString(),
+    value: 'This Item needs to be checked',
+  },
+];
+
+const HistoryItems = ({
+  historyItems,
+}: {
+  historyItems: typeof historyItemsData;
+}) => {
+  const colors = useAppTheme().colors;
+
+  return (
+    <View
+      style={{
+        alignSelf: 'stretch',
+        //marginTop: 16,
+      }}>
+      {historyItems.map((item, index) => {
+        return (
+          <View
+            key={index}
+            style={{
+              //flexDirection: 'row',
+              alignSelf: 'stretch',
+              justifyContent: 'space-between',
+              //paddingVertical: 7,
+              //alignItems: 'center',
+            }}>
+            <Text variant="notesItemHistoryTitle">{item.title}</Text>
+            <Text variant="notesItemHistoryDate">{item.date}</Text>
+            <Text variant="notesItemHistoryDetail">{item.value}</Text>
+          </View>
+        );
+      })}
+    </View>
+  );
+};
+
 const ModelDetails = () => {
   const colors = useAppTheme().colors;
   const theme = useAppTheme();
@@ -205,11 +252,7 @@ const ModelDetails = () => {
             }}
           />
 
-          <Text variant="notesItemHistoryTitle"> Jennifer Smith </Text>
-          <Text variant="notesItemHistoryDate"> {Date().toString()} </Text>
-          <Text variant="notesItemHistoryDetail">
-            This Item need to be checked
-          </Text>
+          <HistoryItems historyItems={historyItemsData} />
         </View>
       </View>
     </View>
