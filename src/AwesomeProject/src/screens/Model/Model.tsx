@@ -115,6 +115,8 @@ const Model = () => {
           fontSize: 18,
         }}
         right={<TextInput.Icon icon={Barcode} size={26} />}
+        placeholder="Type to Search…"
+        placeholderTextColor={colors.inputTextPlaceHolder}
       />
       <View
         style={{
