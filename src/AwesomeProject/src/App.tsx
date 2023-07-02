@@ -2,10 +2,12 @@ import {RootStack} from '@navigation';
 import {NavigationContainer} from '@react-navigation/native';
 import {store, themeSelector} from '@redux';
 import {darkTheme, lightTheme} from '@theme';
-import React from 'react';
+import React, {useState} from 'react';
 import {PaperProvider} from 'react-native-paper';
 import {Provider as ReduxProvider, useSelector} from 'react-redux';
 import {getModelItems, getDBConnection} from './storage';
+import {DBContext} from '@contexts';
+import {SQLiteDatabase} from 'react-native-sqlite-storage';
 
 const dbStaff = async () => {
   const db = await getDBConnection();
@@ -25,10 +27,14 @@ const AppWithoutRedux = () => {
 };
 
 const App = () => {
+  const [db, setDb] = useState<SQLiteDatabase | null>(null);
+
   return (
-    <ReduxProvider store={store}>
-      <AppWithoutRedux />
-    </ReduxProvider>
+    <DBContext.Provider value={db}>
+      <ReduxProvider store={store}>
+        <AppWithoutRedux />
+      </ReduxProvider>
+    </DBContext.Provider>
   );
 };
 
