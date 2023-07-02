@@ -1,27 +1,18 @@
 # Tasks:
 
-- [x]: Figure out colors
-- [x]: Resolve fonts
-- [x]: Theme Cicle Icon
-- [x]: finalize AppBar
-- [x]: pass hasBackButton from mainLayout to AppBar
-- [x]: Home doesn't have a back button
-- [x]: Download AppBar SVGs
-- [x]: Add all screens (Empty)
-- Screens (Shape only):
-  - [x]: Screen 1
-  - [x]: Screen 2
-  - [x]: Screen 3
-- [x]: pass parameters to AppBar
-- [x]: Fix the Back button
-- [x]: Make proccess Button optional
-- [x] navigate to last screen
-- [x]: Handle the Edit Button
+- [ ]: create a Drop table function
+- [ ]: create a Drop tables function
+- [ ]: Create a db context
+- [ ]: make the db contect work
+- [ ]: create a reset button at the appbar
+- [ ]: install react native restart
+- [ ]: Make the reset button drop the tables and restart
+- Models Screen to Create:
+  - [ ]: Add a small text input with state
+  - [ ]: Add a small create button
+- [ ]: onPress: reset the text in text input and create in the db
+- [ ]: render what was stored in db
 
-- Finish Screens:
-  - [x]: Screen 1
-  - [x]: Screen 2
-  - [ ]: Screen 3
 - [ ]: Edit Button BG color in dark theme is =~ transparent
 - [ ]: now to DataBase
 - [ ]: Rename Project

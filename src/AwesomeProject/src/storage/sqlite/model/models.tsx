@@ -66,3 +66,9 @@ export const updateModelItem = async (
   const updateQuery = `UPDATE ${modelTableName} SET name = '${name}' WHERE rowid = ${id}`;
   await db.executeSql(updateQuery);
 };
+
+export const dropModelTable = async (db: SQLiteDatabase) => {
+  const query = `drop table ${modelTableName}`;
+
+  await db.executeSql(query);
+};

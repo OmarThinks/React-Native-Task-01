@@ -1,7 +1,7 @@
 import {getStoredTheme, setStoredTheme} from './theme';
 
 import {openDatabase} from 'react-native-sqlite-storage';
-import {getDBConnection} from './sqlite/db-service';
+import {dropTables, getDBConnection} from './sqlite/db-service';
 import {
   deleteModelItem,
   getModelItems,
@@ -11,9 +11,10 @@ import {
 
 export {
   deleteModelItem,
+  dropTables,
   getDBConnection,
-  getStoredTheme,
   getModelItems,
+  getStoredTheme,
   openDatabase,
   saveModelItems,
   setStoredTheme,
