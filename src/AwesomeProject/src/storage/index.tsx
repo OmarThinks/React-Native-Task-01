@@ -1,7 +1,7 @@
 import {getStoredTheme, setStoredTheme} from './theme';
 
 import {openDatabase} from 'react-native-sqlite-storage';
-import {createTables} from './sqlite/db-service';
+import {getDBConnection} from './sqlite/db-service';
 import {
   deleteTodoItem,
   getTodoItems,
@@ -10,8 +10,8 @@ import {
 } from './sqlite/todo/todo';
 
 export {
-  createTables,
   deleteTodoItem,
+  getDBConnection,
   getStoredTheme,
   getTodoItems,
   openDatabase,

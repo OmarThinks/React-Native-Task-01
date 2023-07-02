@@ -15,3 +15,8 @@ export const getDBConnection = async () => {
 export const createTables = async (db: SQLiteDatabase) => {
   await createTodoTable(db);
 };
+
+(async () => {
+  const db = await getDBConnection();
+  await createTables(db);
+})();
