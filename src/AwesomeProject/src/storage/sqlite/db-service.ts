@@ -17,6 +17,9 @@ export const createTables = async (db: SQLiteDatabase) => {
 };
 
 (async () => {
+  console.log('Creating tables...');
   const db = await getDBConnection();
   await createTables(db);
+
+  console.log('Created tables.');
 })();
