@@ -5,12 +5,12 @@ import {darkTheme, lightTheme} from '@theme';
 import React from 'react';
 import {PaperProvider} from 'react-native-paper';
 import {Provider as ReduxProvider, useSelector} from 'react-redux';
-import {getTodoItems, getDBConnection} from './storage';
+import {getModelItems, getDBConnection} from './storage';
 
 const dbStaff = async () => {
   const db = await getDBConnection();
-  const items = await getTodoItems(db);
-  console.log(items);
+  const models = await getModelItems(db);
+  console.log(models);
 };
 const AppWithoutRedux = () => {
   const theme = useSelector(themeSelector);

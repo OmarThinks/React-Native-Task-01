@@ -4,7 +4,7 @@ import {
   SQLiteDatabase,
 } from 'react-native-sqlite-storage';
 
-import {createTodoTable} from './todo/todo';
+import {createModelTable} from './model/models';
 
 enablePromise(true);
 
@@ -13,7 +13,7 @@ export const getDBConnection = async () => {
 };
 
 export const createTables = async (db: SQLiteDatabase) => {
-  await createTodoTable(db);
+  await createModelTable(db);
 };
 
 (async () => {

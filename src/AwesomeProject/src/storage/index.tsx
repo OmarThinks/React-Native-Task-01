@@ -3,19 +3,19 @@ import {getStoredTheme, setStoredTheme} from './theme';
 import {openDatabase} from 'react-native-sqlite-storage';
 import {getDBConnection} from './sqlite/db-service';
 import {
-  deleteTodoItem,
-  getTodoItems,
-  saveTodoItems,
-  updateTodoItem,
-} from './sqlite/todo/todo';
+  deleteModelItem,
+  getModelItems,
+  saveModelItems,
+  updateModelItem,
+} from './sqlite/model/models';
 
 export {
-  deleteTodoItem,
+  deleteModelItem,
   getDBConnection,
   getStoredTheme,
-  getTodoItems,
+  getModelItems,
   openDatabase,
-  saveTodoItems,
+  saveModelItems,
   setStoredTheme,
-  updateTodoItem,
+  updateModelItem,
 };
