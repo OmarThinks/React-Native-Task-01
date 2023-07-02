@@ -156,29 +156,55 @@ const ModelDetails = () => {
           setIsVisible={setIsNotesVisible}
         />
 
-        <TextInput
+        <View
           style={{
-            alignSelf: 'stretch',
-            marginVertical: 10,
-            borderRadius: 20,
-            marginBottom: 21,
-            backgroundColor: colors.textInputBgOnCard,
-          }}
-          theme={{
-            ...theme,
-            roundness: 20,
-          }}
-          outlineStyle={{
-            width: 2,
-          }}
-          underlineStyle={{
-            height: 0,
-          }}
-          dense
-          contentStyle={{
-            fontSize: 18,
-          }}
-        />
+            display: isNotesVisible ? 'flex' : 'none',
+          }}>
+          <View
+            style={{
+              alignSelf: 'flex-end',
+              marginRight: 22,
+              overflow: 'hidden',
+              borderRadius: 20,
+            }}>
+            <TouchFiller onPress={() => {}} />
+            <View
+              style={{
+                alignSelf: 'flex-end',
+                flexDirection: 'row',
+                gap: 7,
+                alignItems: 'center',
+                margin: 10,
+              }}>
+              <Icon name="save" color={colors.normalText} size={20} />
+              <Text variant="notesHistorySaveText">Save</Text>
+            </View>
+          </View>
+
+          <TextInput
+            style={{
+              alignSelf: 'stretch',
+              marginTop: 5,
+              borderRadius: 20,
+              marginBottom: 21,
+              backgroundColor: colors.textInputBgOnCard,
+            }}
+            theme={{
+              ...theme,
+              roundness: 20,
+            }}
+            outlineStyle={{
+              width: 2,
+            }}
+            underlineStyle={{
+              height: 0,
+            }}
+            dense
+            contentStyle={{
+              fontSize: 18,
+            }}
+          />
+        </View>
       </View>
     </View>
   );

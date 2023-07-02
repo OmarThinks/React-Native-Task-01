@@ -41,6 +41,10 @@ export const customFonts = {
     fontWeight: 'normal',
     fontStyle: 'italic',
   },
+  notesHistorySaveText: {
+    fontSize: 12,
+    fontWeight: 'normal',
+  },
   notesItemHistoryDetail: {
     fontSize: 12,
     fontWeight: 'normal',
