@@ -204,6 +204,12 @@ const ModelDetails = () => {
               fontSize: 18,
             }}
           />
+
+          <Text variant="notesItemHistoryTitle"> Jennifer Smith </Text>
+          <Text variant="notesItemHistoryDate"> {Date().toString()} </Text>
+          <Text variant="notesItemHistoryDetail">
+            This Item need to be checked
+          </Text>
         </View>
       </View>
     </View>

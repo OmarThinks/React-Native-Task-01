@@ -35,15 +35,17 @@ export const customFonts = {
     fontWeight: 'bold',
   },
   notesSubHeader: {fontSize: 15, fontWeight: 'normal'},
+
+  notesHistorySaveText: {
+    fontSize: 12,
+    fontWeight: 'normal',
+  },
+
   notesItemHistoryTitle: {fontSize: 12, fontWeight: '600'},
   notesItemHistoryDate: {
     fontSize: 8,
     fontWeight: 'normal',
     fontStyle: 'italic',
-  },
-  notesHistorySaveText: {
-    fontSize: 12,
-    fontWeight: 'normal',
   },
   notesItemHistoryDetail: {
     fontSize: 12,
