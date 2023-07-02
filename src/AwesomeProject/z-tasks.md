@@ -17,10 +17,12 @@
 - [x]: Make proccess Button optional
 - [x] navigate to last screen
 - [x]: Handle the Edit Button
+
 - Finish Screens:
   - [x]: Screen 1
   - [x]: Screen 2
   - [ ]: Screen 3
+- [ ]: Edit Button BG color in dark theme is =~ transparent
 - [ ]: now to DataBase
 - [ ]: Rename Project
 - [ ]: Change the Project Icon

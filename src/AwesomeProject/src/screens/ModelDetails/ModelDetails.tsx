@@ -88,6 +88,7 @@ const HR = () => {
 
 const ModelDetails = () => {
   const colors = useAppTheme().colors;
+  const theme = useAppTheme();
 
   const [isImageInfoVisible, setIsImageInfoVisible] = useState(true);
   const [isNotesVisible, setIsNotesVisible] = useState(true);
@@ -153,6 +154,30 @@ const ModelDetails = () => {
           title="Notes"
           isVisible={isNotesVisible}
           setIsVisible={setIsNotesVisible}
+        />
+
+        <TextInput
+          style={{
+            alignSelf: 'stretch',
+            marginVertical: 10,
+            borderRadius: 20,
+            marginBottom: 21,
+            backgroundColor: colors.textInputBgOnCard,
+          }}
+          theme={{
+            ...theme,
+            roundness: 20,
+          }}
+          outlineStyle={{
+            width: 2,
+          }}
+          underlineStyle={{
+            height: 0,
+          }}
+          dense
+          contentStyle={{
+            fontSize: 18,
+          }}
         />
       </View>
     </View>

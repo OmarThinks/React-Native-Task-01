@@ -26,6 +26,8 @@ const lightColors = {
   processIconColor: '#00FF00',
   iconColor: '#000000',
   iconBg: '#F4FAF5',
+
+  textInputBgOnCard: '#FFFFFF',
 };
 
 type themeColors = typeof lightColors;
@@ -53,6 +55,8 @@ const darkColors: themeColors = {
   processIconColor: '#00FF00',
   iconColor: '#FFFFFF',
   iconBg: '#333333',
+
+  textInputBgOnCard: '#000000',
 };
 
 export {darkColors, lightColors};
