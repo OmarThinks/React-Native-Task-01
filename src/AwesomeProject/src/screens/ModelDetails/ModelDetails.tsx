@@ -43,11 +43,29 @@ const DetailsTitle = ({
         }}>
         <Text variant="detailsHeader">{title}</Text>
         <Icon
-          name={!isVisible ? 'chevron-up' : 'chevron-down'}
+          name={isVisible ? 'chevron-up' : 'chevron-down'}
           size={10}
           color={colors.normalText}
         />
       </View>
+    </View>
+  );
+};
+
+const InfoDetail = ({title, value}: {title: string; value: string}) => {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignSelf: 'stretch',
+        justifyContent: 'space-between',
+      }}>
+      <Text variant="detailName" style={{lineHeight: 31}}>
+        {title}
+      </Text>
+      <Text variant="detailValue" style={{lineHeight: 31}}>
+        {value}
+      </Text>
     </View>
   );
 };
@@ -117,6 +135,18 @@ const ModelDetails = () => {
           isVisible={isImageInfoVisible}
           setIsVisible={setIsImageInfoVisible}
         />
+        <View
+          style={{
+            display: isImageInfoVisible ? 'flex' : 'none',
+          }}>
+          <InfoDetail title="Model" value="Epson LX-300" />
+          <InfoDetail title="Model Name" value="Epson LX-300" />
+          <InfoDetail title="Model Type" value="Epson LX-300" />
+          <InfoDetail title="Cost" value="Epson LX-300" />
+          <InfoDetail title="Category" value="Epson LX-300" />
+          <InfoDetail title="Additional Description" value="Epson LX-300" />
+          <InfoDetail title="Model Manufacturer" value="Epson LX-300" />
+        </View>
 
         <HR />
         <DetailsTitle
