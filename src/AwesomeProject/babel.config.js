@@ -18,6 +18,7 @@ module.exports = {
           '@storage': './src/storage/index.tsx',
           '@theme': './src/theme/index.tsx',
           '@navigation': './src/navigation/index.tsx',
+          '@contexts': './src/contexts/index.tsx',
 
           // '@app': './src/App.tsx' (Only if needed)
         },
