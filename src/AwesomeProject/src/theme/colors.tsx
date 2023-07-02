@@ -27,7 +27,7 @@ const lightColors = {
   iconColor: '#000000',
   iconBg: '#F4FAF5',
 
-  textInputBgOnCard: '#FFFFFF',
+  onCard: '#FFFFFF',
 };
 
 type themeColors = typeof lightColors;
@@ -56,7 +56,7 @@ const darkColors: themeColors = {
   iconColor: '#FFFFFF',
   iconBg: '#333333',
 
-  textInputBgOnCard: '#000000',
+  onCard: '#000000',
 };
 
 export {darkColors, lightColors};

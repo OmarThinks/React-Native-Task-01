@@ -111,6 +111,9 @@ const HistoryItems = ({
       style={{
         alignSelf: 'stretch',
         //marginTop: 16,
+        padding: 9,
+        backgroundColor: colors.onCard,
+        borderRadius: 19,
       }}>
       {historyItems.map((item, index) => {
         return (
@@ -120,12 +123,23 @@ const HistoryItems = ({
               //flexDirection: 'row',
               alignSelf: 'stretch',
               justifyContent: 'space-between',
+              //marginTop: 7,
               //paddingVertical: 7,
               //alignItems: 'center',
             }}>
             <Text variant="notesItemHistoryTitle">{item.title}</Text>
             <Text variant="notesItemHistoryDate">{item.date}</Text>
             <Text variant="notesItemHistoryDetail">{item.value}</Text>
+            {index !== historyItems.length - 1 && (
+              <View
+                style={{
+                  height: 2,
+                  backgroundColor: colors.hrColor,
+                  alignSelf: 'stretch',
+                  marginVertical: 7,
+                }}
+              />
+            )}
           </View>
         );
       })}
@@ -156,6 +170,7 @@ const ModelDetails = () => {
           paddingHorizontal: 16,
           paddingVertical: 13,
           borderRadius: 25,
+          flexGrow: 1,
         }}>
         <View
           // This is the container of card image
@@ -234,7 +249,7 @@ const ModelDetails = () => {
               marginTop: 5,
               borderRadius: 20,
               marginBottom: 21,
-              backgroundColor: colors.textInputBgOnCard,
+              backgroundColor: colors.onCard,
             }}
             theme={{
               ...theme,
@@ -254,6 +269,7 @@ const ModelDetails = () => {
 
           <HistoryItems historyItems={historyItemsData} />
         </View>
+        <HR />
       </View>
     </View>
   );
