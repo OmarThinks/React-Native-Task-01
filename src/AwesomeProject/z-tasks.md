@@ -1,7 +1,7 @@
 # Tasks:
 
-- [ ]: create a Drop table function
-- [ ]: create a Drop tables function
+- [x]: create a Drop table function
+- [x]: create a Drop tables function
 - [ ]: Create a db context
 - [ ]: make the db contect work
 - [ ]: create a reset button at the appbar
