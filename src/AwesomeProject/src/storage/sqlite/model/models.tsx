@@ -36,7 +36,7 @@ export const getModelItems = async (
   }
 };
 
-export const saveModelItems = async (
+export const _saveModelItems = async (
   db: SQLiteDatabase,
   modelItems: ModelItem[],
 ) => {
@@ -71,4 +71,10 @@ export const dropModelTable = async (db: SQLiteDatabase) => {
   const query = `drop table ${modelTableName}`;
 
   await db.executeSql(query);
+};
+
+export const createModelItem = async (db: SQLiteDatabase, name: string) => {
+  const insertQuery = `INSERT INTO ${modelTableName}(name) values('${name}')`;
+
+  await db.executeSql(insertQuery);
 };

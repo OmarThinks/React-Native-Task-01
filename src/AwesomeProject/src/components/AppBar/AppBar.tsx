@@ -139,7 +139,7 @@ const AppBar = ({
 
   const db = useContext(DBContext);
 
-  console.log(db);
+  // console.log(db);
 
   return (
     <View

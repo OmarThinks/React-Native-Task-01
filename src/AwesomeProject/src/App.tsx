@@ -33,6 +33,8 @@ const App = () => {
     const init = async () => {
       const _db = await getDBConnection();
       setDb(_db);
+      const models = await getModelItems(_db);
+      console.log(models);
     };
     init();
   }, []);

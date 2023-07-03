@@ -5,7 +5,7 @@ import {dropTables, getDBConnection} from './sqlite/db-service';
 import {
   deleteModelItem,
   getModelItems,
-  saveModelItems,
+  createModelItem,
   updateModelItem,
 } from './sqlite/model/models';
 
@@ -16,7 +16,7 @@ export {
   getModelItems,
   getStoredTheme,
   openDatabase,
-  saveModelItems,
+  createModelItem,
   setStoredTheme,
   updateModelItem,
 };

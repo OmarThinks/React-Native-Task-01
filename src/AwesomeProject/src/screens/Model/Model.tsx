@@ -7,6 +7,8 @@ import {useAppTheme} from '@theme';
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
+import {createModelItem} from '@storage';
+import {DBContext} from '@contexts';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -87,6 +89,7 @@ const Model = () => {
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const [newModelTitle, setNewModelTitle] = React.useState('');
+  const db = React.useContext(DBContext);
 
   return (
     <View
@@ -149,7 +152,11 @@ const Model = () => {
       />
       <Button
         icon={'plus'}
-        onPress={() => {}}
+        onPress={() => {
+          createModelItem(db, newModelTitle);
+          setNewModelTitle('');
+          // [ ]: should refetch from db
+        }}
         style={{
           backgroundColor: colors.smallCardBg,
           marginBottom: 20,
