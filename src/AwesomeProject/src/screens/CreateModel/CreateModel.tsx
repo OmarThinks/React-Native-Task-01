@@ -7,6 +7,17 @@ import {useAppTheme} from '@theme';
 import React from 'react';
 import {View} from 'react-native';
 import {TextInput, TextInputProps, Button} from 'react-native-paper';
+import {navigationNames} from '@navigation';
+import {RouteProp} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
+import {DBContext} from '@contexts';
+import {createModelItem} from '@storage';
+import {SQLiteDatabase} from 'react-native-sqlite-storage';
+
+type CreateModelScreenProps = RouteProp<
+  RootStackParamList,
+  typeof navigationNames.CreateModel
+>;
 
 const ModelField = (props: TextInputProps) => {
   const theme = useAppTheme();
@@ -56,6 +67,8 @@ const ModelField = (props: TextInputProps) => {
 */
 
 const CreateModel = () => {
+  const [errorMessage, setErrorMessage] = React.useState('');
+
   const [modelTitle, setModelTitle] = React.useState('');
   const [modelCode, setModelCode] = React.useState('');
   const [modelType, setModelType] = React.useState('');
@@ -63,56 +76,119 @@ const CreateModel = () => {
   const [modelCategory, setModelCategory] = React.useState('');
   const [modelDescription, setModelDescription] = React.useState('');
 
+  const updateModelTitle = (text: string) => {
+    setErrorMessage('');
+    setModelTitle(text);
+  };
+  const updateModelCode = (text: string) => {
+    setErrorMessage('');
+    setModelCode(text);
+  };
+  const updateModelType = (text: string) => {
+    setErrorMessage('');
+    setModelType(text);
+  };
+  const updateModelCost = (text: string) => {
+    setErrorMessage('');
+    setModelCost(text);
+  };
+  const updateModelCategory = (text: string) => {
+    setErrorMessage('');
+    setModelCategory(text);
+  };
+  const updateModelDescription = (text: string) => {
+    setErrorMessage('');
+    setModelDescription(text);
+  };
+
   const colors = useAppTheme().colors;
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const db = React.useContext(DBContext) as SQLiteDatabase;
+
+  const {fetchModels} = useRoute<CreateModelScreenProps>().params;
 
   return (
     <View>
       <Text variant="v25">Create a Model</Text>
       <ModelField
         value={modelTitle}
-        onChangeText={setModelTitle}
+        onChangeText={updateModelTitle}
         label={'Name'}
       />
       <ModelField
+        value={modelCode}
+        onChangeText={updateModelCode}
+        label={'Code'}
+      />
+      <ModelField
+        value={modelType}
+        onChangeText={updateModelType}
+        label={'Type'}
+      />
+      <ModelField
+        value={modelCost}
+        label={'Cost'}
+        onChangeText={updateModelCost}
+      />
+      <ModelField
+        value={modelCategory}
+        onChangeText={updateModelCategory}
+        label={'Category'}
+      />
+      <ModelField
         value={modelDescription}
-        onChangeText={setModelDescription}
+        onChangeText={updateModelDescription}
         label={'Description'}
         multiline={true}
         numberOfLines={4}
       />
-      <ModelField
-        value={modelCode}
-        onChangeText={setModelCode}
-        label={'Image'}
-      />
 
-      <ModelField
-        value={modelType}
-        onChangeText={setModelType}
-        label={'Price'}
-      />
-      <ModelField
-        value={modelCost}
-        label={'Stock'}
-        onChangeText={setModelCost}
-      />
-      <ModelField
-        value={modelCategory}
-        onChangeText={setModelCategory}
-        label={'Category'}
-      />
-
+      {errorMessage !== '' && (
+        <Text
+          style={{
+            color: 'red',
+            marginBottom: 20,
+          }}
+          variant="v18">
+          {errorMessage}
+        </Text>
+      )}
       <Button
         icon={'plus'}
-        onPress={() => {
-          if (newModelTitle === '') {
+        onPress={async () => {
+          setErrorMessage('');
+
+          if (modelTitle === '') {
+            setErrorMessage('Name is required');
             return;
           }
-          createModelItem({
+          if (modelCode === '') {
+            setErrorMessage('Code is required');
+            return;
+          }
+
+          if (modelType === '') {
+            setErrorMessage('Type is required');
+            return;
+          }
+          if (modelCost === '') {
+            setErrorMessage('Cost is required');
+            return;
+          }
+          if (modelCategory === '') {
+            setErrorMessage('Category is required');
+            return;
+          }
+          if (modelDescription === '') {
+            setErrorMessage('Description is required');
+            return;
+          }
+
+          await createModelItem({
             db,
-            name: newModelTitle,
+            name: modelTitle,
             code: 'code',
             model_type: 'mt',
             cost: 144006.97852,
@@ -120,14 +196,19 @@ const CreateModel = () => {
             additionalDesctiption: 'Nothing',
             imageLink: 'No WHere',
           });
-          setNewModelTitle('');
-          fetchModels();
+          await fetchModels();
+          navigation.goBack();
         }}
         style={{
-          backgroundColor: 'lime',
+          backgroundColor: colors.iconBg,
           marginBottom: 20,
         }}>
-        <Text>Create</Text>
+        <Text
+          style={{
+            color: colors.iconColor,
+          }}>
+          Create
+        </Text>
       </Button>
     </View>
   );
