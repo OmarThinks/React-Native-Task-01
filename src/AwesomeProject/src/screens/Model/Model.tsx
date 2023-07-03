@@ -10,6 +10,7 @@ import React from 'react';
 import {Image, ScrollView, StyleSheet, View} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
+import {deleteModelItem} from '@storage';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -31,10 +32,12 @@ const CardItem = ({
   imgSrc,
   onPress,
   caption,
+  onDelete,
 }: {
   imgSrc: any;
   onPress?: () => void;
   caption: string;
+  onDelete: () => void;
 }) => {
   const colors = useAppTheme().colors;
 
@@ -58,7 +61,7 @@ const CardItem = ({
           iconSize={45}
           color={'red'}
           bgColor={colors.smallCardBg}
-          onPress={() => {}}
+          onPress={onDelete}
         />
       </View>
       <View
@@ -154,9 +157,15 @@ const Model = () => {
           onPress={() => {
             navigation.navigate('ModelDetails', {id: model.id});
           }}
+          onDelete={async () => {
+            await deleteModelItem(db, model.id);
+            //setShouldRefetchModels(true);
+            fetchModels();
+          }}
         />
       );
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [models, searchText, navigation]);
 
   React.useEffect(() => {
@@ -165,7 +174,7 @@ const Model = () => {
   }, []);
 
   return (
-    <View style={{flexShrink: 1, backgroundColor: colors.appBg}}>
+    <View style={{flexShrink: 1, backgroundColor: colors.appBg, flexGrow: 1}}>
       <ScrollView
         style={{
           flexGrow: 1,
