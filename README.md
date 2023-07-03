@@ -2,6 +2,17 @@
 
 A task for a job
 
+# Technologies used:
+
+- React
+- React Native
+- React native paper
+- React navigation
+- Redux
+- AsyncStorage
+- react-native-sqlite-storage
+- react-native-restart
+
 # Adobe XD Design:
 
 https://xd.adobe.com/view/c051e850-df50-4652-be4f-2912e2ed33ad-9502/
