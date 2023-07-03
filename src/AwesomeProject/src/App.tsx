@@ -5,6 +5,7 @@ import {store, themeSelector} from '@redux';
 import {getDBConnection} from '@storage';
 import {darkTheme, lightTheme} from '@theme';
 import React, {useEffect, useState} from 'react';
+import {LogBox} from 'react-native';
 import {PaperProvider} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 import {Provider as ReduxProvider, useSelector} from 'react-redux';
@@ -45,3 +46,7 @@ const App = () => {
 };
 
 export default App;
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
