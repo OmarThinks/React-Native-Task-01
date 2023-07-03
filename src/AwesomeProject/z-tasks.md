@@ -3,9 +3,9 @@
 - [x]: create the Notes model
 - [x]: Capture notes from db
 - [x]: create small note
-- [ ]: refetch on create
+- [x]: refetch on create
 - [x]: Create the notes
-- [ ]: render notes
+- [x]: render notes
 - [ ]: delete notes
 - [x]: what happens when you delete model?
 

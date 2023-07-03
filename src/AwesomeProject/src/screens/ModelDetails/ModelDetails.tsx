@@ -12,6 +12,8 @@ import {ModelItem} from '@storage';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 import {NoteItem} from '@storage';
 import {createNoteItem} from '@storage';
+import {CircleIcon} from '@components';
+import {deleteNoteItem} from '@storage';
 
 type ModelDetailScreenProps = RouteProp<
   RootStackParamList,
@@ -109,12 +111,16 @@ const historyItemsData = [
   },
 ];
 
-const HistoryItems = ({
-  historyItems,
-}: {
-  historyItems: typeof historyItemsData;
-}) => {
+type HistoryItemsData = {
+  id: number;
+  title: string;
+  date: string;
+  value: string;
+};
+
+const HistoryItems = ({historyItems}: {historyItems: HistoryItemsData[]}) => {
   const colors = useAppTheme().colors;
+  const db = React.useContext(DBContext) as SQLiteDatabase;
 
   return (
     <View
@@ -137,6 +143,28 @@ const HistoryItems = ({
               //paddingVertical: 7,
               //alignItems: 'center',
             }}>
+            <View
+              style={{
+                position: 'absolute',
+                zIndex: 3,
+                right: 3,
+                top: 3,
+              }}>
+              <CircleIcon
+                iconName="times-circle"
+                size={37}
+                iconSize={37}
+                color={'red'}
+                bgColor={colors.smallCardBg}
+                onPress={
+                  () => {
+                    deleteNoteItem(db, item.id);
+                  }
+                  //onDelete
+                }
+              />
+            </View>
+
             <Text variant="notesItemHistoryTitle">{item.title}</Text>
             <Text variant="notesItemHistoryDate">{item.date}</Text>
             <Text variant="notesItemHistoryDetail">{item.value}</Text>
@@ -167,7 +195,6 @@ const ModelDetails = () => {
   const {id: modelId} = useRoute<ModelDetailScreenProps>().params;
 
   /*
-  
     note_note: string;
   user_name: string;
   note_date: string;
@@ -178,6 +205,7 @@ const ModelDetails = () => {
       title: string;
     date: string;
     value: string;
+
 
   */
 
@@ -240,6 +268,7 @@ const ModelDetails = () => {
   React.useEffect(() => {
     fetchModels();
     fetchNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
