@@ -1,6 +1,6 @@
 # Tasks:
 
-- [ ]: make search works
+- [x]: make search works
 - [ ]: re-arch the model table
 - [ ]: Create Model screen
 
