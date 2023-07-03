@@ -47,6 +47,22 @@ const CardItem = ({
       }}>
       <View
         style={{
+          position: 'absolute',
+          zIndex: 3,
+          right: 5,
+          top: 5,
+        }}>
+        <CircleIcon
+          iconName="times-circle"
+          size={45}
+          iconSize={45}
+          color={'red'}
+          bgColor={colors.smallCardBg}
+          onPress={() => {}}
+        />
+      </View>
+      <View
+        style={{
           backgroundColor: colors.smallCardBg,
           elevation: 20,
           borderRadius: 19,
