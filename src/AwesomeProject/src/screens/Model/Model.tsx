@@ -11,6 +11,7 @@ import {Image, StyleSheet, View, ScrollView} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 import {FAB} from 'react-native-paper';
+import {CircleIcon} from '@components';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -139,7 +140,7 @@ const Model = () => {
   }, [db]);
 
   return (
-    <View style={{flexShrink: 1}}>
+    <View style={{flexShrink: 1, backgroundColor: colors.appBg}}>
       <ScrollView
         style={{
           flexGrow: 1,
@@ -241,14 +242,18 @@ const Model = () => {
         style={{
           zIndex: 3,
           position: 'absolute',
-          width: 30,
-          height: 30,
-          backgroundColor: 'red',
-          borderRadius: 30,
-          right: 0,
-          bottom: 0,
-        }}
-      />
+          right: 30,
+          bottom: 30,
+        }}>
+        <CircleIcon
+          iconName={'plus'}
+          size={50}
+          color={colors.iconColor}
+          borderWidth={2}
+          bgColor={colors.smallCardBg}
+          onPress={() => {}}
+        />
+      </View>
     </View>
   );
 };
