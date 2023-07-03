@@ -11,7 +11,8 @@ const lightColors = {
   appBarBg: '#DEDEDE',
   normalText: '#4E4E4E',
   searchBarBg: '#F0F0F0',
-  inputTextPlaceHolder: '#C1C1C1',
+  inputTextPlaceHolderOnCard: '#C1C1C1',
+  inputTextPlaceHolder: '#B4B4B4',
 
   hrColor: '#DEDEDE',
 
@@ -41,6 +42,7 @@ const darkColors: themeColors = {
   normalText: '#dddddd',
   searchBarBg: '#555555',
   inputTextPlaceHolder: '#999999',
+  inputTextPlaceHolderOnCard: '#999999',
 
   hrColor: '#333333',
 

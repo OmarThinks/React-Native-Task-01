@@ -86,6 +86,8 @@ const Model = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
+  const [newModelTitle, setNewModelTitle] = React.useState('');
+
   return (
     <View
       style={{
@@ -118,6 +120,34 @@ const Model = () => {
         placeholder="Type to Search…"
         placeholderTextColor={colors.inputTextPlaceHolder}
       />
+
+      <TextInput
+        style={{
+          alignSelf: 'stretch',
+          marginVertical: 10,
+          borderRadius: 20,
+          marginBottom: 21,
+        }}
+        theme={{
+          ...theme,
+          roundness: 20,
+        }}
+        outlineStyle={{
+          width: 2,
+        }}
+        underlineStyle={{
+          height: 0,
+        }}
+        dense
+        contentStyle={{
+          fontSize: 18,
+        }}
+        placeholder="Create a field …"
+        placeholderTextColor={colors.inputTextPlaceHolder}
+        value={newModelTitle}
+        onChangeText={setNewModelTitle}
+      />
+
       <View
         style={{
           ...styles.itemsRow,

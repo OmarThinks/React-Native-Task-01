@@ -265,6 +265,8 @@ const ModelDetails = () => {
             contentStyle={{
               fontSize: 18,
             }}
+            placeholder="Add a Note…"
+            placeholderTextColor={colors.inputTextPlaceHolderOnCard}
           />
 
           <HistoryItems historyItems={historyItemsData} />

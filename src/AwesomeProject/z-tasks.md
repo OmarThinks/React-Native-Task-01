@@ -8,7 +8,7 @@
 - [x]: install react native restart
 - Make the reset button drop the tables and restart
   - [x]: restart app
-  - [ ]: drop the tables
+  - [x]: drop the tables
 - Models Screen to Create:
   - [ ]: Add a small text input with state
   - [ ]: Add a small create button
