@@ -59,21 +59,31 @@ export const deleteTable = async (db: SQLiteDatabase) => {
   await db.executeSql(query);
 };
 
-export const updateModelItem = async (
-  db: SQLiteDatabase,
-  id: number,
-  name: string,
-  code: string,
-  type: string,
-  cost: number,
-  category: string,
-  additionalDesctiption: string,
-  imageLink: string,
-) => {
+export const updateModelItem = async ({
+  db,
+  id,
+  name,
+  code,
+  model_type,
+  cost,
+  category,
+  additionalDesctiption,
+  imageLink,
+}: {
+  db: SQLiteDatabase;
+  id: number;
+  name: string;
+  code: string;
+  model_type: string;
+  cost: number;
+  category: string;
+  additionalDesctiption: string;
+  imageLink: string;
+}) => {
   const updateQuery = `UPDATE ${modelTableName} SET 
   model_name = '${name}',
   model_code = '${code}',
-  model_type = '${type}',
+  model_type = '${model_type}',
   model_cost = ${cost},
   model_category = '${category}',
   model_additionalDesctiption = '${additionalDesctiption}',
