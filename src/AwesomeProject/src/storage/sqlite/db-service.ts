@@ -24,6 +24,7 @@ export const dropTables = async (db: SQLiteDatabase) => {
   console.log('Creating tables...');
   const db = await getDBConnection();
   await createTables(db);
+  // await dropTables(db);
 
   console.log('Created tables.');
 })();

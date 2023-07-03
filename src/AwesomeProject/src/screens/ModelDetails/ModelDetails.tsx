@@ -160,7 +160,7 @@ const ModelDetails = () => {
 
   const {id: modelId} = useRoute<ModelDetailScreenProps>().params;
 
-  console.log(params);
+  console.log(modelId);
 
   return (
     <View

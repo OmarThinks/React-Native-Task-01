@@ -2,12 +2,12 @@ import {DBContext} from '@contexts';
 import {RootStack} from '@navigation';
 import {NavigationContainer} from '@react-navigation/native';
 import {store, themeSelector} from '@redux';
+import {getDBConnection} from '@storage';
 import {darkTheme, lightTheme} from '@theme';
 import React, {useEffect, useState} from 'react';
 import {PaperProvider} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 import {Provider as ReduxProvider, useSelector} from 'react-redux';
-import {getDBConnection} from './storage';
 
 const AppWithoutRedux = () => {
   const theme = useSelector(themeSelector);

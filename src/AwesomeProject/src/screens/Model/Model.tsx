@@ -97,12 +97,37 @@ const Model = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
+  const [searchText, setSearchText] = React.useState('');
+
   const [newModelTitle, setNewModelTitle] = React.useState('');
   const [models, setModels] = React.useState<ModelItem[]>([]);
 
   console.log('models', models);
 
   const db = React.useContext(DBContext);
+
+  const renderModelItems = React.useMemo(() => {
+    const filerTextLower = searchText.toLowerCase();
+    const filteredData = models.filter(model => {
+      const modelName = model.name.toLowerCase();
+      return modelName.includes(filerTextLower);
+    });
+
+    // console.log('filteredData', filteredData);
+
+    return filteredData.map(model => {
+      return (
+        <CardItem
+          imgSrc={PrinterImage}
+          caption={model.name}
+          key={model.id}
+          onPress={() => {
+            navigation.navigate('ModelDetails', {id: model.id});
+          }}
+        />
+      );
+    });
+  }, [models, searchText, navigation]);
 
   React.useEffect(() => {
     fetchModels(db, setModels);
@@ -139,6 +164,8 @@ const Model = () => {
         right={<TextInput.Icon icon={Barcode} size={26} />}
         placeholder="Type to Search…"
         placeholderTextColor={colors.inputTextPlaceHolder}
+        value={searchText}
+        onChangeText={setSearchText}
       />
 
       <TextInput
@@ -188,18 +215,7 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        {models.map(model => {
-          return (
-            <CardItem
-              imgSrc={PrinterImage}
-              caption={model.name}
-              key={model.id}
-              onPress={() => {
-                navigation.navigate('ModelDetails', {id: model.id});
-              }}
-            />
-          );
-        })}
+        {renderModelItems}
       </View>
     </View>
   );
