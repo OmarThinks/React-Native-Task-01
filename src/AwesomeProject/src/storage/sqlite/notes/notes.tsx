@@ -23,9 +23,10 @@ export const createNoteTable = async (db: SQLiteDatabase) => {
       user_name TEXT NOT NULL,
       note_date TEXT NOT NULL,
       note_details TEXT NOT NULL,
-      model_id INTEGER NOT NULL
+      model_id INTEGER NOT NULL,
+      FOREIGN KEY (model_id) REFERENCES ${modelTableName}(rowid)
       );`;
-  // FOREIGN KEY (model_id) REFERENCES ${modelTableName}(rowid)
+  //
 
   await db.executeSql(query);
 };

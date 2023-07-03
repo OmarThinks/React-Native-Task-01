@@ -1,5 +1,7 @@
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 //  model type, cost, category, Additional description, image link
+import {getNoteItems, deleteNoteItem} from '../notes/notes';
+
 export type ModelItem = {
   id: number;
   model_name: string;
@@ -49,6 +51,14 @@ export const getModelItems = async (
 };
 
 export const deleteModelItem = async (db: SQLiteDatabase, id: number) => {
+  const notes = await getNoteItems(db);
+
+  notes.map(async note => {
+    if (note.model_id === id) {
+      await deleteNoteItem(db, note.id);
+    }
+  });
+
   const deleteQuery = `DELETE from ${modelTableName} where rowid = ${id}`;
   await db.executeSql(deleteQuery);
 };
