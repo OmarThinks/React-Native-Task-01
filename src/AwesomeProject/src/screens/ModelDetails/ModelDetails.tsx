@@ -166,8 +166,40 @@ const ModelDetails = () => {
 
   const {id: modelId} = useRoute<ModelDetailScreenProps>().params;
 
+  /*
+  
+    note_note: string;
+  user_name: string;
+  note_date: string;
+  note_details: string;
+  model_id: number;
+
+
+      title: string;
+    date: string;
+    value: string;
+
+  */
+
   const [models, setModels] = React.useState<ModelItem[] | null>(null);
   const [notes, setNotes] = React.useState<NoteItem[] | null>(null);
+  const modelNotes = React.useMemo(() => {
+    if (notes) {
+      const _notes = notes.filter(note => note.model_id === modelId);
+
+      return _notes.map(note => {
+        return {
+          id: note.id,
+          value: note.note_note,
+          title: note.user_name,
+          date: note.note_date,
+          details: note.note_details,
+          model_id: note.model_id,
+        };
+      });
+    }
+    return [];
+  }, [notes, modelId]);
 
   const db = React.useContext(DBContext) as SQLiteDatabase;
 
@@ -338,7 +370,7 @@ const ModelDetails = () => {
             placeholderTextColor={colors.inputTextPlaceHolderOnCard}
           />
 
-          <HistoryItems historyItems={historyItemsData} />
+          <HistoryItems historyItems={modelNotes} />
         </View>
         <HR />
       </View>
