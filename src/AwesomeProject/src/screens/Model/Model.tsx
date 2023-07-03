@@ -57,8 +57,8 @@ const CardItem = ({
         }}>
         <CircleIcon
           iconName="times-circle"
-          size={45}
-          iconSize={45}
+          size={37}
+          iconSize={37}
           color={'red'}
           bgColor={colors.smallCardBg}
           onPress={onDelete}

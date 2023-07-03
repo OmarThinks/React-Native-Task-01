@@ -2,10 +2,14 @@ import {Icon, Text, TouchFiller} from '@components';
 import {MainLayout} from '@hoc';
 import {RootStackParamList, navigationNames} from '@navigation';
 import {RouteProp, useRoute} from '@react-navigation/native';
+import {getModelItems} from '@storage';
 import {useAppTheme} from '@theme';
 import React, {useState} from 'react';
 import {Image, View} from 'react-native';
 import {TextInput} from 'react-native-paper';
+import {DBContext} from '@contexts';
+import {ModelItem} from '@storage';
+import {SQLiteDatabase} from 'react-native-sqlite-storage';
 
 type ModelDetailScreenProps = RouteProp<
   RootStackParamList,
@@ -160,7 +164,33 @@ const ModelDetails = () => {
 
   const {id: modelId} = useRoute<ModelDetailScreenProps>().params;
 
+  const [models, setModels] = React.useState<ModelItem[] | null>(null);
+
+  const db = React.useContext(DBContext) as SQLiteDatabase;
+
+  const fetchModels = async () => {
+    try {
+      const _models = await getModelItems(db);
+      setModels(_models);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const model = models?.find(_model => _model.id === modelId);
+
   console.log(modelId);
+
+  const model_name = model?.model_name || '';
+  const model_code = model?.model_code.toString() || '';
+  const model_type = model?.model_type || '';
+  const model_cost = model?.model_cost.toString() || '';
+  const model_category = model?.model_category || '';
+  const model_additionalDesctiption = model?.model_additionalDesctiption || '';
+
+  React.useEffect(() => {
+    fetchModels();
+  }, []);
 
   return (
     <View
@@ -210,13 +240,15 @@ const ModelDetails = () => {
           style={{
             display: isImageInfoVisible ? 'flex' : 'none',
           }}>
-          <InfoDetail title="Model" value="Epson LX-300" />
-          <InfoDetail title="Model Name" value="Epson LX-300" />
-          <InfoDetail title="Model Type" value="Epson LX-300" />
-          <InfoDetail title="Cost" value="Epson LX-300" />
-          <InfoDetail title="Category" value="Epson LX-300" />
-          <InfoDetail title="Additional Description" value="Epson LX-300" />
-          <InfoDetail title="Model Manufacturer" value="Epson LX-300" />
+          <InfoDetail title="Model Name" value={model_name} />
+          <InfoDetail title="Model Code" value={model_code} />
+          <InfoDetail title="Model Type" value={model_type} />
+          <InfoDetail title="Cost" value={model_cost} />
+          <InfoDetail title="Category" value={model_category} />
+          <InfoDetail
+            title="Additional Description"
+            value={model_additionalDesctiption}
+          />
         </View>
 
         <HR />
