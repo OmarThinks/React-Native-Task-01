@@ -19,7 +19,7 @@ export type RootStackParamList = {
   [navigationNames.Splash]: undefined;
   [navigationNames.Components1]: undefined;
   [navigationNames.Model]: undefined;
-  [navigationNames.ModelDetails]: undefined;
+  [navigationNames.ModelDetails]: {id: number};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
