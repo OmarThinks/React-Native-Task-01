@@ -83,18 +83,6 @@ const CardItem = ({
   );
 };
 
-const fetchModels = async (
-  db: SQLiteDatabase,
-  setState: (b: ModelItem[]) => void,
-) => {
-  try {
-    const models = await getModelItems(db);
-    setState(models);
-  } catch (e) {
-    console.log(e);
-  }
-};
-
 const Model = () => {
   const colors = useAppTheme().colors;
   const theme = useAppTheme();
@@ -104,20 +92,42 @@ const Model = () => {
   const [searchText, setSearchText] = React.useState('');
 
   const [newModelTitle, setNewModelTitle] = React.useState('');
-  const [models, setModels] = React.useState<ModelItem[]>([]);
+  const [models, setModels] = React.useState<ModelItem[] | null>(null);
+
+  const [shouldRefetchModels, setShouldRefetchModels] = React.useState(false);
 
   //console.log('models', models);
 
   const db = React.useContext(DBContext) as SQLiteDatabase;
 
+  const fetchModels = async () => {
+    try {
+      const _models = await getModelItems(db);
+      setModels(_models);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  React.useEffect(() => {
+    if (shouldRefetchModels) {
+      //fetchModels(db, setModels);
+      //setShouldRefetchModels(false);
+    }
+  }, [shouldRefetchModels, db]);
+
   const renderModelItems = React.useMemo(() => {
     const filerTextLower = searchText.toLowerCase();
-    const filteredData = models.filter(model => {
+    const filteredData = models?.filter(model => {
       const modelName = model.model_name.toLowerCase();
       return modelName.includes(filerTextLower);
     });
 
     // console.log('filteredData', filteredData);
+
+    if (filteredData === undefined || filteredData === null) {
+      return [];
+    }
 
     return filteredData.map(model => {
       return (
@@ -134,8 +144,8 @@ const Model = () => {
   }, [models, searchText, navigation]);
 
   React.useEffect(() => {
-    fetchModels(db, setModels);
-  }, [db]);
+    fetchModels();
+  }, [fetchModels]);
 
   return (
     <View style={{flexShrink: 1, backgroundColor: colors.appBg}}>
@@ -219,7 +229,7 @@ const Model = () => {
               imageLink: 'No WHere',
             });
             setNewModelTitle('');
-            fetchModels(db, setModels);
+            fetchModels();
           }}
           style={{
             backgroundColor: colors.smallCardBg,
