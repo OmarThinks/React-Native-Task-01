@@ -9,6 +9,9 @@ import {Image, StyleSheet, View} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {createModelItem} from '@storage';
 import {DBContext} from '@contexts';
+import {ModelItem} from '@storage';
+import {SQLiteDatabase} from 'react-native-sqlite-storage';
+import {getModelItems} from '@storage';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -82,6 +85,14 @@ const CardItem = ({
   );
 };
 
+const fetchModels = async (
+  db: SQLiteDatabase,
+  setState: (b: ModelItem[]) => void,
+) => {
+  const models = await getModelItems(db);
+  setState(models);
+};
+
 const Model = () => {
   const colors = useAppTheme().colors;
   const theme = useAppTheme();
@@ -89,7 +100,15 @@ const Model = () => {
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const [newModelTitle, setNewModelTitle] = React.useState('');
+  const [models, setModels] = React.useState<ModelItem[]>([]);
+
+  console.log('models', models);
+
   const db = React.useContext(DBContext);
+
+  React.useEffect(() => {
+    fetchModels(db, setModels);
+  }, []);
 
   return (
     <View
@@ -155,7 +174,7 @@ const Model = () => {
         onPress={() => {
           createModelItem(db, newModelTitle);
           setNewModelTitle('');
-          // [ ]: should refetch from db
+          fetchModels(db, setModels);
         }}
         style={{
           backgroundColor: colors.smallCardBg,
@@ -191,8 +210,15 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        <CardItem imgSrc={labtopImage} caption={'Laptops'} />
-        <CardItem imgSrc={InkImage} caption={'Printer Inc'} />
+        {models.map(model => {
+          return (
+            <CardItem
+              imgSrc={PrinterImage}
+              caption={model.name}
+              key={model.id}
+            />
+          );
+        })}
       </View>
     </View>
   );

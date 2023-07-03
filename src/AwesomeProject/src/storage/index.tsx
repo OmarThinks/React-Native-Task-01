@@ -8,6 +8,7 @@ import {
   createModelItem,
   updateModelItem,
 } from './sqlite/model/models';
+export type {ModelItem} from './sqlite/model/models';
 
 export {
   deleteModelItem,

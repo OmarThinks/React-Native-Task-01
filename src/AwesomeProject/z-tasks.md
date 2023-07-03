@@ -10,10 +10,11 @@
   - [x]: restart app
   - [x]: drop the tables
 - Models Screen to Create:
-  - [ ]: Add a small text input with state
-  - [ ]: Add a small create button
-- [ ]: onPress: reset the text in text input and create in the db
-- [ ]: render what was stored in db
+  - [x]: Add a small text input with state
+  - [x]: Add a small create button
+- [x]: onPress: reset the text in text input and create in the db
+- [x]: capture in the ModelScreen using useState and useEffect
+- [x]: render what was stored in db
 
 - [ ]: Edit Button BG color in dark theme is =~ transparent
 - [ ]: now to DataBase
