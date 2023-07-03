@@ -191,12 +191,12 @@ const CreateModel = () => {
           await createModelItem({
             db,
             name: modelTitle,
-            code: 'code',
-            model_type: 'mt',
-            cost: 144006.97852,
-            category: 'saff',
-            additionalDesctiption: 'Nothing',
-            imageLink: 'No WHere',
+            code: modelCode,
+            model_type: modelType,
+            cost: Number(modelCost),
+            category: modelCategory,
+            additionalDesctiption: modelDescription,
+            imageLink: 'No Where',
           });
           await fetchModels();
           navigation.goBack();

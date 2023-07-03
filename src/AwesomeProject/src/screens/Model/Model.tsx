@@ -241,12 +241,12 @@ const Model = () => {
         <Button
           icon={'plus'}
           onPress={() => {
-            if (newModelTitle === '') {
+            /*if (newModelTitle === '') {
               return;
-            }
+            }*/
             createModelItem({
               db,
-              name: newModelTitle,
+              name: newModelTitle !== '' ? newModelTitle : 'Wassup',
               code: 'code',
               model_type: 'mt',
               cost: 144006.97852,
@@ -261,7 +261,7 @@ const Model = () => {
             backgroundColor: colors.smallCardBg,
             marginBottom: 20,
           }}>
-          <Text>Create</Text>
+          <Text>Fast Create</Text>
         </Button>
 
         <View
@@ -282,9 +282,9 @@ const Model = () => {
         <CircleIcon
           iconName={'plus'}
           size={50}
-          color={colors.iconColor}
-          borderWidth={2}
-          bgColor={colors.smallCardBg}
+          color={colors.smallCardBg}
+          //borderWidth={2}
+          bgColor={'lime'}
           onPress={() => {
             navigation.navigate(navigationNames.CreateModel, {fetchModels});
           }}
