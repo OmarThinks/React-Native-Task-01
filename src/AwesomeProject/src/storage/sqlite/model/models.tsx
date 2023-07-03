@@ -34,7 +34,7 @@ export const getModelItems = async (
   try {
     const modelItems: ModelItem[] = [];
     const results = await db.executeSql(
-      `SELECT rowid as id,model_name,model_code,model_type,model_cost,model_category,model_additionalDesctiption,model_imageLink FROM ${modelTableName}`,
+      `SELECT rowid as id, model_name, model_code, model_type, model_cost,model_category,model_additionalDesctiption,model_imageLink FROM ${modelTableName}`,
     );
     results.forEach(result => {
       for (let index = 0; index < result.rows.length; index++) {
@@ -93,7 +93,7 @@ export const updateModelItem = async ({
 };
 
 export const dropModelTable = async (db: SQLiteDatabase) => {
-  const query = `IF EXISTS(SELECT * FROM ${modelTableName}) DROP TABLE ${modelTableName}`;
+  const query = `DROP TABLE ${modelTableName}`;
 
   await db.executeSql(query);
 };

@@ -87,8 +87,12 @@ const fetchModels = async (
   db: SQLiteDatabase,
   setState: (b: ModelItem[]) => void,
 ) => {
-  const models = await getModelItems(db);
-  setState(models);
+  try {
+    const models = await getModelItems(db);
+    setState(models);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const Model = () => {
@@ -104,7 +108,7 @@ const Model = () => {
 
   console.log('models', models);
 
-  const db = React.useContext(DBContext);
+  const db = React.useContext(DBContext) as SQLiteDatabase;
 
   const renderModelItems = React.useMemo(() => {
     const filerTextLower = searchText.toLowerCase();
@@ -200,7 +204,16 @@ const Model = () => {
           if (newModelTitle === '') {
             return;
           }
-          createModelItem(db, newModelTitle);
+          createModelItem({
+            db,
+            name: newModelTitle,
+            code: 'code',
+            model_type: 'mt',
+            cost: 144006.97852,
+            category: 'saff',
+            additionalDesctiption: 'Nothing',
+            imageLink: 'No WHere',
+          });
           setNewModelTitle('');
           fetchModels(db, setModels);
         }}
