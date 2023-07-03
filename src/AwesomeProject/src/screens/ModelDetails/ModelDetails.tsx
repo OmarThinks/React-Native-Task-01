@@ -183,6 +183,9 @@ const ModelDetails = () => {
 
   const [models, setModels] = React.useState<ModelItem[] | null>(null);
   const [notes, setNotes] = React.useState<NoteItem[] | null>(null);
+
+  const [newNoteValue, setNewNoteValue] = React.useState<string>('');
+
   const modelNotes = React.useMemo(() => {
     if (notes) {
       const _notes = notes.filter(note => note.model_id === modelId);
@@ -319,15 +322,17 @@ const ModelDetails = () => {
               marginBottom: 5,
             }}>
             <TouchFiller
-              onPress={() => {
-                createNoteItem({
+              onPress={async () => {
+                await createNoteItem({
                   db,
-                  note_note: 'Hey',
-                  user_name: 'Potato',
-                  note_date: 'Today',
+                  note_note: newNoteValue,
+                  user_name: 'Omar Magdy',
+                  note_date: Date().toString(),
                   note_details: 'Details',
                   model_id: modelId,
                 });
+                setNewNoteValue('');
+                await fetchNotes();
               }}
             />
             <View
@@ -368,11 +373,12 @@ const ModelDetails = () => {
             }}
             placeholder="Add a Note…"
             placeholderTextColor={colors.inputTextPlaceHolderOnCard}
+            value={newNoteValue}
+            onChangeText={setNewNoteValue}
           />
 
           <HistoryItems historyItems={modelNotes} />
         </View>
-        <HR />
       </View>
     </View>
   );
