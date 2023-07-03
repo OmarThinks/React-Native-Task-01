@@ -1,13 +1,16 @@
 # Tasks:
 
-- [ ]: display product details
+- [ ]: create the Notes model
+- [ ]: Create the notes
+- [ ]: render notes
+
+- [ ]: Fake image
+
 - [ ]: copy and paste CreateModel screen to EditModel screen
 - [ ]: prepare screen params
 - [ ]: make screen recieve params
-- [ ]: make screen use pramas as defaulkt values
+- [ ]: make screen use pramas as default values
 - [ ]: Make the screen edit the Model
-- [ ]: Create the notes
-- [ ]: render notes
 
 - [ ]: Edit Button BG color in dark theme is =~ transparent
 - [ ]: now to DataBase

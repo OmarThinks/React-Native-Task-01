@@ -53,12 +53,6 @@ export const deleteModelItem = async (db: SQLiteDatabase, id: number) => {
   await db.executeSql(deleteQuery);
 };
 
-export const deleteTable = async (db: SQLiteDatabase) => {
-  const query = `drop table ${modelTableName}`;
-
-  await db.executeSql(query);
-};
-
 export const updateModelItem = async ({
   db,
   id,
