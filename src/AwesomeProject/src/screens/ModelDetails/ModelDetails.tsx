@@ -118,7 +118,13 @@ type HistoryItemsData = {
   value: string;
 };
 
-const HistoryItems = ({historyItems}: {historyItems: HistoryItemsData[]}) => {
+const HistoryItems = ({
+  historyItems,
+  fetchNotes,
+}: {
+  historyItems: HistoryItemsData[];
+  fetchNotes: () => void;
+}) => {
   const colors = useAppTheme().colors;
   const db = React.useContext(DBContext) as SQLiteDatabase;
 
@@ -157,8 +163,9 @@ const HistoryItems = ({historyItems}: {historyItems: HistoryItemsData[]}) => {
                 color={'red'}
                 bgColor={colors.smallCardBg}
                 onPress={
-                  () => {
-                    deleteNoteItem(db, item.id);
+                  async () => {
+                    await deleteNoteItem(db, item.id);
+                    await fetchNotes();
                   }
                   //onDelete
                 }
@@ -406,7 +413,7 @@ const ModelDetails = () => {
             onChangeText={setNewNoteValue}
           />
 
-          <HistoryItems historyItems={modelNotes} />
+          <HistoryItems historyItems={modelNotes} fetchNotes={fetchNotes} />
         </View>
       </View>
     </View>
