@@ -1,7 +1,7 @@
 import {CircleIcon, Text, TouchFiller} from '@components';
 import {DBContext} from '@contexts';
 import {MainLayout} from '@hoc';
-import {RootStackParamList} from '@navigation';
+import {RootStackParamList, navigationNames} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelItem, createModelItem, getModelItems} from '@storage';
@@ -145,7 +145,8 @@ const Model = () => {
 
   React.useEffect(() => {
     fetchModels();
-  }, [fetchModels]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <View style={{flexShrink: 1, backgroundColor: colors.appBg}}>
@@ -259,7 +260,9 @@ const Model = () => {
           color={colors.iconColor}
           borderWidth={2}
           bgColor={colors.smallCardBg}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate(navigationNames.CreateModel, {fetchModels});
+          }}
         />
       </View>
     </View>
