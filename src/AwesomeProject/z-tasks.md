@@ -10,6 +10,6 @@
 
 - [ ]: Edit Button BG color in dark theme is =~ transparent
 
-- [ ]: Rename Project
+- [x]: Rename Project
 - [ ]: Change the Project Icon
 - [ ]: generate APK
