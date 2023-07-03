@@ -6,6 +6,8 @@ import {
 
 import {createModelTable, dropModelTable} from './model/models';
 
+import {createNoteTable, dropNoteTable} from './notes/notes';
+
 enablePromise(true);
 
 export const getDBConnection = async () => {
@@ -14,9 +16,11 @@ export const getDBConnection = async () => {
 
 export const createTables = async (db: SQLiteDatabase) => {
   await createModelTable(db);
+  await createNoteTable(db);
 };
 
 export const dropTables = async (db: SQLiteDatabase) => {
+  await dropNoteTable(db);
   await dropModelTable(db);
 };
 
