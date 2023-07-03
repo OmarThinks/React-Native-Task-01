@@ -3,20 +3,14 @@ import {RootStack} from '@navigation';
 import {NavigationContainer} from '@react-navigation/native';
 import {store, themeSelector} from '@redux';
 import {darkTheme, lightTheme} from '@theme';
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {PaperProvider} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 import {Provider as ReduxProvider, useSelector} from 'react-redux';
-import {getDBConnection, getModelItems} from './storage';
+import {getDBConnection} from './storage';
 
-const dbStaff = async () => {
-  // const db = await getDBConnection();
-  // const models = await getModelItems(db);
-  // console.log(models);
-};
 const AppWithoutRedux = () => {
   const theme = useSelector(themeSelector);
-  dbStaff();
   return (
     <PaperProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <NavigationContainer>
@@ -33,8 +27,8 @@ const App = () => {
     const init = async () => {
       const _db = await getDBConnection();
       setDb(_db);
-      const models = await getModelItems(_db);
-      console.log(models);
+      // const models = await getModelItems(_db);
+      // console.log(models);
     };
     init();
   }, []);

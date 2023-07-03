@@ -108,7 +108,7 @@ const Model = () => {
 
   React.useEffect(() => {
     fetchModels(db, setModels);
-  }, []);
+  }, [db]);
 
   return (
     <View
@@ -172,6 +172,9 @@ const Model = () => {
       <Button
         icon={'plus'}
         onPress={() => {
+          if (newModelTitle === '') {
+            return;
+          }
           createModelItem(db, newModelTitle);
           setNewModelTitle('');
           fetchModels(db, setModels);
@@ -187,35 +190,15 @@ const Model = () => {
         style={{
           ...styles.itemsRow,
         }}>
-        <CardItem
-          imgSrc={PrinterImage}
-          caption={'Printer HS'}
-          onPress={() => {
-            navigation.navigate('ModelDetails');
-          }}
-        />
-        <CardItem imgSrc={LCDImage} caption={'LCD XS'} />
-      </View>
-
-      <View
-        style={{
-          marginTop: 16,
-          marginBottom: 23,
-          height: 3,
-          backgroundColor: colors.hrColor,
-          alignSelf: 'stretch',
-        }}
-      />
-      <View
-        style={{
-          ...styles.itemsRow,
-        }}>
         {models.map(model => {
           return (
             <CardItem
               imgSrc={PrinterImage}
               caption={model.name}
               key={model.id}
+              onPress={() => {
+                navigation.navigate('ModelDetails');
+              }}
             />
           );
         })}
