@@ -25,3 +25,23 @@ A task for a job
 
 <img src="./media/AppIcon/icon.png">
 <img src="./media/AppIcon/icon2.png">
+
+# My Implementation:
+
+<img src="./media/screenshots/01.png" width=400>
+<img src="./media/screenshots/02.png" width=400>
+<img src="./media/screenshots/03.png" width=400>
+<img src="./media/screenshots/04.png" width=400>
+<img src="./media/screenshots/05.png" width=400>
+<img src="./media/screenshots/06.png" width=400>
+<img src="./media/screenshots/07.png" width=400>
+<img src="./media/screenshots/08.png" width=400>
+<img src="./media/screenshots/09.png" width=400>
+<img src="./media/screenshots/10.png" width=400>
+<img src="./media/screenshots/11.png" width=400>
+<img src="./media/screenshots/12.png" width=400>
+<img src="./media/screenshots/13.png" width=400>
+<img src="./media/screenshots/14.png" width=400>
+<img src="./media/screenshots/15.png" width=400>
+<img src="./media/screenshots/16.png" width=400>
+<img src="./media/screenshots/17.png" width=400>
