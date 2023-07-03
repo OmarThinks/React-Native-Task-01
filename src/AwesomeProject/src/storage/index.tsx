@@ -13,6 +13,7 @@ import {
 } from './sqlite/notes/notes';
 import {getStoredTheme, setStoredTheme} from './theme';
 export type {ModelItem} from './sqlite/model/models';
+export type {NoteItem} from './sqlite/notes/notes';
 
 export {
   createModelItem,

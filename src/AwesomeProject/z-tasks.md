@@ -1,6 +1,6 @@
 # Tasks:
 
-- [ ]: create the Notes model
+- [x]: create the Notes model
 - [ ]: Create the notes
 - [ ]: render notes
 

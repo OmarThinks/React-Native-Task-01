@@ -2,7 +2,7 @@ import {Icon, Text, TouchFiller} from '@components';
 import {MainLayout} from '@hoc';
 import {RootStackParamList, navigationNames} from '@navigation';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {getModelItems} from '@storage';
+import {getModelItems, getNoteItems} from '@storage';
 import {useAppTheme} from '@theme';
 import React, {useState} from 'react';
 import {Image, View} from 'react-native';
@@ -10,6 +10,7 @@ import {TextInput} from 'react-native-paper';
 import {DBContext} from '@contexts';
 import {ModelItem} from '@storage';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
+import {NoteItem} from '@storage';
 
 type ModelDetailScreenProps = RouteProp<
   RootStackParamList,
@@ -165,6 +166,7 @@ const ModelDetails = () => {
   const {id: modelId} = useRoute<ModelDetailScreenProps>().params;
 
   const [models, setModels] = React.useState<ModelItem[] | null>(null);
+  const [notes, setNotes] = React.useState<NoteItem[] | null>(null);
 
   const db = React.useContext(DBContext) as SQLiteDatabase;
 
@@ -177,9 +179,20 @@ const ModelDetails = () => {
     }
   };
 
+  const fetchNotes = async () => {
+    try {
+      const _notes = await getNoteItems(db);
+      setNotes(_notes);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const model = models?.find(_model => _model.id === modelId);
 
-  console.log(modelId);
+  // console.log(modelId);
+
+  console.log('NOTES', notes);
 
   const model_name = model?.model_name || '';
   const model_code = model?.model_code.toString() || '';
@@ -190,6 +203,7 @@ const ModelDetails = () => {
 
   React.useEffect(() => {
     fetchModels();
+    fetchNotes();
   }, []);
 
   return (
