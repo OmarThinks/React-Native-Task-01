@@ -197,7 +197,7 @@ const Model = () => {
               caption={model.name}
               key={model.id}
               onPress={() => {
-                navigation.navigate('ModelDetails');
+                navigation.navigate('ModelDetails', {id: model.id});
               }}
             />
           );
