@@ -121,6 +121,7 @@ const CreateModel = () => {
         value={modelCode}
         onChangeText={updateModelCode}
         label={'Code'}
+        keyboardType="decimal-pad"
       />
       <ModelField
         value={modelType}
@@ -131,6 +132,7 @@ const CreateModel = () => {
         value={modelCost}
         label={'Cost'}
         onChangeText={updateModelCost}
+        keyboardType="decimal-pad"
       />
       <ModelField
         value={modelCategory}
