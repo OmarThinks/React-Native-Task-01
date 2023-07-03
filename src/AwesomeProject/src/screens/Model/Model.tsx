@@ -6,7 +6,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAppTheme} from '@theme';
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
-import {TextInput} from 'react-native-paper';
+import {Button, TextInput} from 'react-native-paper';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -147,6 +147,15 @@ const Model = () => {
         value={newModelTitle}
         onChangeText={setNewModelTitle}
       />
+      <Button
+        icon={'plus'}
+        onPress={() => {}}
+        style={{
+          backgroundColor: colors.smallCardBg,
+          marginBottom: 20,
+        }}>
+        <Text>Create</Text>
+      </Button>
 
       <View
         style={{
