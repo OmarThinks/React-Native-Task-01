@@ -1,7 +1,7 @@
 # Tasks:
 
 - [x]: make search works
-- [ ]: re-arch the model table
+- [x]: re-arch the model table
 - [ ]: Create Model screen
 
 - [ ]: Edit Button BG color in dark theme is =~ transparent

@@ -1,4 +1,4 @@
-import {Text, TouchFiller} from '@components';
+import {CircleIcon, Text, TouchFiller} from '@components';
 import {DBContext} from '@contexts';
 import {MainLayout} from '@hoc';
 import {RootStackParamList} from '@navigation';
@@ -7,11 +7,9 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelItem, createModelItem, getModelItems} from '@storage';
 import {useAppTheme} from '@theme';
 import React from 'react';
-import {Image, StyleSheet, View, ScrollView} from 'react-native';
+import {Image, ScrollView, StyleSheet, View} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
-import {FAB} from 'react-native-paper';
-import {CircleIcon} from '@components';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
