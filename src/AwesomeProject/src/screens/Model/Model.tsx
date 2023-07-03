@@ -109,7 +109,7 @@ const Model = () => {
   const renderModelItems = React.useMemo(() => {
     const filerTextLower = searchText.toLowerCase();
     const filteredData = models.filter(model => {
-      const modelName = model.name.toLowerCase();
+      const modelName = model.model_name.toLowerCase();
       return modelName.includes(filerTextLower);
     });
 
@@ -119,7 +119,7 @@ const Model = () => {
       return (
         <CardItem
           imgSrc={PrinterImage}
-          caption={model.name}
+          caption={model.model_name}
           key={model.id}
           onPress={() => {
             navigation.navigate('ModelDetails', {id: model.id});

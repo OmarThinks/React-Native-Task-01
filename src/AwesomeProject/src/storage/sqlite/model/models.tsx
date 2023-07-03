@@ -2,13 +2,13 @@ import {SQLiteDatabase} from 'react-native-sqlite-storage';
 //  model type, cost, category, Additional description, image link
 export type ModelItem = {
   id: number;
-  name: string;
-  code: string;
-  type: string;
-  cost: number;
-  category: string;
-  additionalDesctiption: string;
-  imageLink: string;
+  model_name: string;
+  model_code: string;
+  model_type: string;
+  model_cost: number;
+  model_category: string;
+  model_additionalDesctiption: string;
+  model_image_link: string;
 };
 
 export const modelTableName = 'model';
@@ -16,13 +16,13 @@ export const modelTableName = 'model';
 export const createModelTable = async (db: SQLiteDatabase) => {
   // create table if not exists
   const query = `CREATE TABLE IF NOT EXISTS ${modelTableName}(
-    name TEXT NOT NULL, 
-    code TEXT NOT NULL,
-    type TEXT NOT NULL,
-    cost REAL NOT NULL,
-    category TEXT NOT NULL,
-    additionalDesctiption TEXT NOT NULL,
-    imageLink TEXT NOT NULL
+    model_name TEXT NOT NULL, 
+    model_code TEXT NOT NULL,
+    model_type TEXT NOT NULL,
+    model_cost REAL NOT NULL,
+    model_category TEXT NOT NULL,
+    model_additionalDesctiption TEXT NOT NULL,
+    model_imageLink TEXT NOT NULL
       );`;
 
   await db.executeSql(query);
@@ -34,7 +34,7 @@ export const getModelItems = async (
   try {
     const modelItems: ModelItem[] = [];
     const results = await db.executeSql(
-      `SELECT rowid as id,name,code,type,cost,category,additionalDesctiption,imageLink FROM ${modelTableName}`,
+      `SELECT rowid as id,model_name,model_code,model_type,model_cost,model_category,model_additionalDesctiption,model_imageLink FROM ${modelTableName}`,
     );
     results.forEach(result => {
       for (let index = 0; index < result.rows.length; index++) {
@@ -71,13 +71,13 @@ export const updateModelItem = async (
   imageLink: string,
 ) => {
   const updateQuery = `UPDATE ${modelTableName} SET 
-  name = '${name}',
-  code = '${code}',
-  type = '${type}',
-  cost = ${cost},
-  category = '${category}',
-  additionalDesctiption = '${additionalDesctiption}',
-  imageLink = '${imageLink}',
+  model_name = '${name}',
+  model_code = '${code}',
+  model_type = '${type}',
+  model_cost = ${cost},
+  model_category = '${category}',
+  model_additionalDesctiption = '${additionalDesctiption}',
+  model_imageLink = '${imageLink}',
   WHERE rowid = ${id}`;
   await db.executeSql(updateQuery);
 };
@@ -88,22 +88,31 @@ export const dropModelTable = async (db: SQLiteDatabase) => {
   await db.executeSql(query);
 };
 
-export const createModelItem = async (
-  db: SQLiteDatabase,
-  name: string,
-  code: string,
-  type: string,
-  cost: number,
-  category: string,
-  additionalDesctiption: string,
-  imageLink: string,
-) => {
-  const insertQuery = `INSERT INTO ${modelTableName}(name,
-      code, type, cost, category, additionalDesctiption, imageLink) 
+export const createModelItem = async ({
+  db,
+  name,
+  code,
+  model_type,
+  cost,
+  category,
+  additionalDesctiption,
+  imageLink,
+}: {
+  db: SQLiteDatabase;
+  name: string;
+  code: string;
+  model_type: string;
+  cost: number;
+  category: string;
+  additionalDesctiption: string;
+  imageLink: string;
+}) => {
+  const insertQuery = `INSERT INTO ${modelTableName}(model_name,
+    model_code, model_type, model_cost, model_category, model_additionalDesctiption, model_imageLink) 
       values(
         '${name}',  
         '${code}',
-        '${type}',
+        '${model_type}',
         '${cost}',
         '${category}',
         '${additionalDesctiption}',
