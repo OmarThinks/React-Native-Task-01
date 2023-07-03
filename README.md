@@ -9,6 +9,8 @@ A task for a job
   - So I used FontAwesome 5
   - Also I could not use png, because it will not fit with dark theme
 
+# Original Design:
+
 <img src="./media/Original%20Design/1.png" width=300>
 
 <img src="./media/Original%20Design/2.png" width=300>
@@ -18,3 +20,8 @@ A task for a job
 <img src="./media/Original%20Design/4.png" width=300>
 
 <img src="./media/Original%20Design/5.png" width=300>
+
+# App Icon:
+
+<img src="./media/AppIcon/icon.png">
+<img src="./media/AppIcon/icon2.png">
