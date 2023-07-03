@@ -7,9 +7,10 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelItem, createModelItem, getModelItems} from '@storage';
 import {useAppTheme} from '@theme';
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View, ScrollView} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
+import {FAB} from 'react-native-paper';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');
@@ -106,7 +107,7 @@ const Model = () => {
   const [newModelTitle, setNewModelTitle] = React.useState('');
   const [models, setModels] = React.useState<ModelItem[]>([]);
 
-  console.log('models', models);
+  //console.log('models', models);
 
   const db = React.useContext(DBContext) as SQLiteDatabase;
 
@@ -138,102 +139,121 @@ const Model = () => {
   }, [db]);
 
   return (
-    <View
-      style={{
-        flexGrow: 1,
-        alignSelf: 'stretch',
-        alignItems: 'center',
-      }}>
-      <TextInput
+    <View style={{flexShrink: 1}}>
+      <ScrollView
         style={{
+          flexGrow: 1,
           alignSelf: 'stretch',
-          marginVertical: 10,
-          borderRadius: 20,
-          marginBottom: 21,
         }}
-        theme={{
-          ...theme,
-          roundness: 20,
-        }}
-        outlineStyle={{
-          width: 2,
-        }}
-        underlineStyle={{
-          height: 0,
-        }}
-        dense
-        contentStyle={{
-          fontSize: 18,
-        }}
-        right={<TextInput.Icon icon={Barcode} size={26} />}
-        placeholder="Type to Search…"
-        placeholderTextColor={colors.inputTextPlaceHolder}
-        value={searchText}
-        onChangeText={setSearchText}
-      />
-
-      <TextInput
-        style={{
-          alignSelf: 'stretch',
-          marginVertical: 10,
-          borderRadius: 20,
-          marginBottom: 21,
-        }}
-        theme={{
-          ...theme,
-          roundness: 20,
-        }}
-        outlineStyle={{
-          width: 2,
-        }}
-        underlineStyle={{
-          height: 0,
-        }}
-        dense
-        contentStyle={{
-          fontSize: 18,
-        }}
-        placeholder="Create a field …"
-        placeholderTextColor={colors.inputTextPlaceHolder}
-        value={newModelTitle}
-        onChangeText={setNewModelTitle}
-      />
-      <Button
-        icon={'plus'}
-        onPress={() => {
-          if (newModelTitle === '') {
-            return;
-          }
-          createModelItem({
-            db,
-            name: newModelTitle,
-            code: 'code',
-            model_type: 'mt',
-            cost: 144006.97852,
-            category: 'saff',
-            additionalDesctiption: 'Nothing',
-            imageLink: 'No WHere',
-          });
-          setNewModelTitle('');
-          fetchModels(db, setModels);
-        }}
-        style={{
-          backgroundColor: colors.smallCardBg,
-          marginBottom: 20,
+        contentContainerStyle={{
+          alignItems: 'center',
+          padding: 20,
         }}>
-        <Text>Create</Text>
-      </Button>
+        <TextInput
+          style={{
+            alignSelf: 'stretch',
+            marginVertical: 10,
+            borderRadius: 20,
+            marginBottom: 21,
+          }}
+          theme={{
+            ...theme,
+            roundness: 20,
+          }}
+          outlineStyle={{
+            width: 2,
+          }}
+          underlineStyle={{
+            height: 0,
+          }}
+          dense
+          contentStyle={{
+            fontSize: 18,
+          }}
+          right={<TextInput.Icon icon={Barcode} size={26} />}
+          placeholder="Type to Search…"
+          placeholderTextColor={colors.inputTextPlaceHolder}
+          value={searchText}
+          onChangeText={setSearchText}
+        />
+
+        <TextInput
+          style={{
+            alignSelf: 'stretch',
+            marginVertical: 10,
+            borderRadius: 20,
+            marginBottom: 21,
+          }}
+          theme={{
+            ...theme,
+            roundness: 20,
+          }}
+          outlineStyle={{
+            width: 2,
+          }}
+          underlineStyle={{
+            height: 0,
+          }}
+          dense
+          contentStyle={{
+            fontSize: 18,
+          }}
+          placeholder="Create a field …"
+          placeholderTextColor={colors.inputTextPlaceHolder}
+          value={newModelTitle}
+          onChangeText={setNewModelTitle}
+        />
+        <Button
+          icon={'plus'}
+          onPress={() => {
+            if (newModelTitle === '') {
+              return;
+            }
+            createModelItem({
+              db,
+              name: newModelTitle,
+              code: 'code',
+              model_type: 'mt',
+              cost: 144006.97852,
+              category: 'saff',
+              additionalDesctiption: 'Nothing',
+              imageLink: 'No WHere',
+            });
+            setNewModelTitle('');
+            fetchModels(db, setModels);
+          }}
+          style={{
+            backgroundColor: colors.smallCardBg,
+            marginBottom: 20,
+          }}>
+          <Text>Create</Text>
+        </Button>
+
+        <View
+          style={{
+            ...styles.itemsRow,
+          }}>
+          {renderModelItems}
+        </View>
+      </ScrollView>
 
       <View
         style={{
-          ...styles.itemsRow,
-        }}>
-        {renderModelItems}
-      </View>
+          zIndex: 3,
+          position: 'absolute',
+          width: 30,
+          height: 30,
+          backgroundColor: 'red',
+          borderRadius: 30,
+          right: 0,
+          bottom: 0,
+        }}
+      />
     </View>
   );
 };
 
 export default MainLayout(Model, {
   title: 'Model',
+  isScrollable: false,
 });
