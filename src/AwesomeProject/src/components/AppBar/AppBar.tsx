@@ -8,6 +8,7 @@ import {useAppTheme} from '@theme';
 import React from 'react';
 import {Image, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import RNRestart from 'react-native-restart';
 
 const BackImage = require('./assets/Back.png');
 const CheckImage = require('./assets/Proccess.png');
@@ -177,7 +178,7 @@ const AppBar = ({
         <AppBarCircleIcon
           iconName="redo"
           onPress={() => {
-            //navigation.navigate(navigationNames.Components1);
+            RNRestart.restart();
           }}
           caption="Reset DB"
         />
