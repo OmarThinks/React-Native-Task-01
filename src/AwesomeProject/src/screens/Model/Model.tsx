@@ -1,17 +1,15 @@
 import {Text, TouchFiller} from '@components';
+import {DBContext} from '@contexts';
 import {MainLayout} from '@hoc';
 import {RootStackParamList} from '@navigation';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ModelItem, createModelItem, getModelItems} from '@storage';
 import {useAppTheme} from '@theme';
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {Button, TextInput} from 'react-native-paper';
-import {createModelItem} from '@storage';
-import {DBContext} from '@contexts';
-import {ModelItem} from '@storage';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
-import {getModelItems} from '@storage';
 
 const InkImage = require('./assets/Ink.png');
 const LCDImage = require('./assets/LCDs.png');

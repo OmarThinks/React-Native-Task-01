@@ -1,7 +1,7 @@
 # Tasks:
 
-- [ ]: onPress model: move to next screen with the parameter
-- [ ]: navigations: take the paremeter
+- [x]: onPress model: move to next screen with the parameter
+- [x]: navigations: take the paremeter
 - [ ]: ModelDetails: read the parameter
 
 - [ ]: Edit Button BG color in dark theme is =~ transparent

@@ -1,12 +1,16 @@
-import {Text, TouchFiller, Icon} from '@components';
+import {Icon, Text, TouchFiller} from '@components';
 import {MainLayout} from '@hoc';
-import {RootStackParamList} from '@navigation';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList, navigationNames} from '@navigation';
+import {RouteProp, useRoute} from '@react-navigation/native';
 import {useAppTheme} from '@theme';
 import React, {useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, View} from 'react-native';
 import {TextInput} from 'react-native-paper';
+
+type ModelDetailScreenProps = RouteProp<
+  RootStackParamList,
+  typeof navigationNames.ModelDetails
+>;
 
 const PrinterImage = require('./assets/Printers.png');
 
@@ -153,6 +157,10 @@ const ModelDetails = () => {
 
   const [isImageInfoVisible, setIsImageInfoVisible] = useState(true);
   const [isNotesVisible, setIsNotesVisible] = useState(true);
+
+  const {id: modelId} = useRoute<ModelDetailScreenProps>().params;
+
+  console.log(params);
 
   return (
     <View
