@@ -2,6 +2,10 @@
 
 A task for a job
 
+# Adobe XD Design:
+
+https://xd.adobe.com/view/c051e850-df50-4652-be4f-2912e2ed33ad-9502/
+
 # Edits in the design:
 
 - [react-native-svg doesn't support the latest version of React native that I am using](https://github.com/software-mansion/react-native-svg#supported-react-native-versions)
