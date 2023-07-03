@@ -5,10 +5,12 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {setTheme, themeSelector} from '@redux';
 import {useAppTheme} from '@theme';
-import React from 'react';
+import React, {useContext} from 'react';
 import {Image, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import RNRestart from 'react-native-restart';
+import {DBContext} from '@contexts';
+import {dropTables} from '@storage';
 
 const BackImage = require('./assets/Back.png');
 const CheckImage = require('./assets/Proccess.png');
@@ -135,6 +137,10 @@ const AppBar = ({
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
+  const db = useContext(DBContext);
+
+  console.log(db);
+
   return (
     <View
       style={{
@@ -177,7 +183,8 @@ const AppBar = ({
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <AppBarCircleIcon
           iconName="redo"
-          onPress={() => {
+          onPress={async () => {
+            await dropTables(db);
             RNRestart.restart();
           }}
           caption="Reset DB"
