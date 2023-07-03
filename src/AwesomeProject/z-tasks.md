@@ -1,8 +1,12 @@
 # Tasks:
 
 - [x]: create the Notes model
+- [x]: Capture notes from db
+- [ ]: create small note
 - [ ]: Create the notes
 - [ ]: render notes
+- [ ]: delete notes
+- [ ]: what happens when you delete model?
 
 - [ ]: Fake image
 

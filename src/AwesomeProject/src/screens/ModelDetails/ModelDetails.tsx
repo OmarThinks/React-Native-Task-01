@@ -11,6 +11,7 @@ import {DBContext} from '@contexts';
 import {ModelItem} from '@storage';
 import {SQLiteDatabase} from 'react-native-sqlite-storage';
 import {NoteItem} from '@storage';
+import {createNoteItem} from '@storage';
 
 type ModelDetailScreenProps = RouteProp<
   RootStackParamList,
@@ -190,7 +191,7 @@ const ModelDetails = () => {
 
   const model = models?.find(_model => _model.id === modelId);
 
-  // console.log(modelId);
+  console.log(modelId);
 
   console.log('NOTES', notes);
 
@@ -279,11 +280,24 @@ const ModelDetails = () => {
           <View
             style={{
               alignSelf: 'flex-end',
-              marginRight: 22,
+              //marginRight: 22,
               overflow: 'hidden',
               borderRadius: 20,
+              backgroundColor: colors.onCard,
+              marginBottom: 5,
             }}>
-            <TouchFiller onPress={() => {}} />
+            <TouchFiller
+              onPress={() => {
+                createNoteItem({
+                  db,
+                  note_note: 'Hey',
+                  user_name: 'Potato',
+                  note_date: 'Today',
+                  note_details: 'Details',
+                  model_id: modelId,
+                });
+              }}
+            />
             <View
               style={{
                 alignSelf: 'flex-end',
@@ -291,6 +305,7 @@ const ModelDetails = () => {
                 gap: 7,
                 alignItems: 'center',
                 margin: 10,
+                marginHorizontal: 30,
               }}>
               <Icon name="save" color={colors.normalText} size={20} />
               <Text variant="notesHistorySaveText">Save</Text>

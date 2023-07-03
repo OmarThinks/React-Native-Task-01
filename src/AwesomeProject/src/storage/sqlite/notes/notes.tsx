@@ -19,14 +19,13 @@ export const createNoteTable = async (db: SQLiteDatabase) => {
 
   const query = `CREATE TABLE IF NOT EXISTS ${noteTableName}
     (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
       note_note TEXT NOT NULL,
       user_name TEXT NOT NULL,
       note_date TEXT NOT NULL,
       note_details TEXT NOT NULL,
-      model_id INTEGER NOT NULL,
-      FOREIGN KEY (model_id) REFERENCES ${modelTableName}(id)
+      model_id INTEGER NOT NULL
       );`;
+  // FOREIGN KEY (model_id) REFERENCES ${modelTableName}(rowid)
 
   await db.executeSql(query);
 };
@@ -81,7 +80,7 @@ export const createNoteItem = async ({
         '${user_name}',
         '${note_date}',
         '${note_details}',
-        '${model_id}',
+        '${model_id}'
     )`;
 
   await db.executeSql(insertQuery);
