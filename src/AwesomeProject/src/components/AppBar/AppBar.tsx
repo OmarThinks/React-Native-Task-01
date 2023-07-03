@@ -67,7 +67,7 @@ const AppBarCircleIcon = ({
       <TouchFiller
         onPress={onPress}
         style={{backgroundColor: 'green'}}
-        inactive
+        //inactive
       />
       <View
         style={{
@@ -174,6 +174,13 @@ const AppBar = ({
         </Text>
       </View>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <AppBarCircleIcon
+          iconName="redo"
+          onPress={() => {
+            //navigation.navigate(navigationNames.Components1);
+          }}
+          caption="Reset DB"
+        />
         <AppBarCircleIcon
           iconName="plug"
           onPress={() => {

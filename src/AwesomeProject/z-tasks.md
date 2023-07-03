@@ -2,11 +2,13 @@
 
 - [x]: create a Drop table function
 - [x]: create a Drop tables function
-- [ ]: Create a db context
-- [ ]: make the db contect work
+- [x]: Create a db context
+- [x]: make the db contect work
 - [ ]: create a reset button at the appbar
 - [ ]: install react native restart
-- [ ]: Make the reset button drop the tables and restart
+- Make the reset button drop the tables and restart
+  - [ ]: restart app
+  - [ ]: drop the tables
 - Models Screen to Create:
   - [ ]: Add a small text input with state
   - [ ]: Add a small create button
